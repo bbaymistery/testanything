@@ -26,7 +26,7 @@ const Layout = ({
         <meta name="resource-type" content="document" />
         <meta name="author" content="London-Heathrow.Taxi" />
         <meta name="language" content="en"></meta>
-        <meta name="robots" content="index,follow" />
+        <meta name="robots" content="index, nofollow" />
 
         {/*  */}
         <link rel="icon" href="/favicon.ico" />
