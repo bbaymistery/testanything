@@ -127,6 +127,7 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
 
       let { index, destination } = params
       let inputField = document.getElementById("input_focused")
+
       inputField.style.opacity = 1
       setInternalState({ [`${destination}-search-focus-${index}`]: false })
       let navbarElement = document.querySelector("#navbar_container")
@@ -136,24 +137,24 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
   const setFocusToInput = (params = {}) => {
     //burda direk inputun ozune focu etmedigimiz ucun churchildekinnen fergli olur
     if (width < 990) {
-      let { e, destination, index } = params
-      console.log(e.target);
 
-      e.target.style.opacity = 0
       let navbarElement = document.querySelector("#navbar_container")
-      console.log({ navbarElement });
-
       navbarElement.style.display = "none"
+      let { e, destination, index } = params
+
+      console.log(e.target);
+      e.target.style.opacity = 0
       setInternalState({ [`${destination}-search-focus-${index}`]: window.innerWidth > 990 ? false : true })
       const container = document?.querySelector("#content");
+
       e.target.style.opacity = 1
       setTimeout(() => {
         window.scroll({
-          top: container,
+          top: 0,
           left: 0,
           behavior: "smooth",
         });
-      }, 100);
+      }, 10);
 
 
     }
