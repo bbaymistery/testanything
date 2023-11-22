@@ -18,10 +18,13 @@ import {
   SET_SHOW_DROP_FIELD_ONEWAY,
   SET_SHOW_PICK_FIELD_ONEWAY,
 } from "../../../store/showFieldReducer/showFieldTypes";
-import HandleSearchResults from "../HandleSearchResults";
 import LoadingInput from "../LoadingInput";
 
 import styles from "../PickUpOneWayInput/styles.module.scss";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+const HandleSearchResults = dynamic(() => import("../HandleSearchResults"))
+
 //hero ccomp => oneway comp = >dropInputsOffValue, setDropInputsOffValue
 const DropOffOneWayInput = ({ dropInputsOffValue, setDropInputsOffValue, setInternalState, internalState }) => {
   const dispatch = useDispatch();
@@ -70,8 +73,7 @@ const DropOffOneWayInput = ({ dropInputsOffValue, setDropInputsOffValue, setInte
     if (e.target.value.length > 2) {
       dispatch(collectPickUpPoints(e.target.value, pickOrDropp, journeyType));
     }
-    //if input value less than 3 letter it will clean  previous data
-    //  if (e.target.value.length < 3) dispatch({ type: RESET_INPUT_LOADINGS });
+
   };
   const addExtraPickPoint = (dropItem) => {
     // console.log(dropItem);
@@ -248,7 +250,7 @@ const DropOffOneWayInput = ({ dropInputsOffValue, setDropInputsOffValue, setInte
                   <p>
                     {selectedDroppOffOnewayPoints[index]?.address
                       ? substrText(selectedDroppOffOnewayPoints[index]?.address)
-                      : "Airport,Hotelor Full Cost Code .."}{" "}
+                      : "Airport,Hotel or Full Postcode .."}{" "}
                   </p>
 
                   {showDroppFieldPickUpIndex === index ? (
@@ -274,7 +276,7 @@ const DropOffOneWayInput = ({ dropInputsOffValue, setDropInputsOffValue, setInte
                 <div className={`${styles['search-input-container']} ${styles.search_box}`} f={String(internalState[`dropoff-search-focus-${index}`])} id="content">
                   <div className={styles.popup_header} f={String(internalState[`dropoff-search-focus-${index}`])}>
                     <i className={`fa-solid fa-xmark ${styles.close_icon}`} onClick={(e) => closeModal({ index, destination: "dropoff" })}></i>
-                    <p>From ?</p>
+                    <p>Where ?</p>
                   </div>
                   <div className={styles.search_box_input_div}>
                     <input
@@ -312,16 +314,11 @@ const DropOffOneWayInput = ({ dropInputsOffValue, setDropInputsOffValue, setInte
               )}
             </div>
             {index + 1 === dropPoints.length && (
-              <div
-                className={styles.add_extrafly_div}
-                onClick={() => addExtraPickPoint(dropItem)}
-              >
+              <div className={styles.add_extrafly_div} onClick={() => addExtraPickPoint(dropItem)}   >
                 <i
                   className={`fa-solid fa-plus ${styles.add_extrafly_div_icon}`}
                 ></i>
-                <p className={styles.add_extrafly_div_text}>
-                  Add Extra Dropoff Point
-                </p>
+                Add Extra Dropoff Point
               </div>
             )}
           </div>

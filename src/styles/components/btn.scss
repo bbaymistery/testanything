@@ -1,4 +1,4 @@
-@use "../colors"as *;
+@use "../colors" as *;
 
 .btn {
     display: inline-block;
@@ -29,12 +29,12 @@
 }
 
 .btn_primary {
-    background: #ed8323;
-    border-color: #e27513;
+    background-color: #ed8323;
+    border: 1px solid #e27513;
     color: #fff;
 
     &:hover {
-        background: #e27513;
+        background-color: #e27513;
         border-color: #c96810;
     }
 }

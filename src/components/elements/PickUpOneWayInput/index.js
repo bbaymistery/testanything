@@ -17,10 +17,12 @@ import {
   deleteItemFromList,
 } from "../../../store/pickUpDropOffReducer/pickUpDropAction";
 import { SET_ERROR_INSIDE_HEROR_CONTENT } from "../../../store/pickUpDropOffReducer/pickUpDropTypes";
-import HandleSearchResults from "../HandleSearchResults";
 import { substrText } from "../../../helpers/substr";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import env from "../../../resources/env";
+import dynamic from "next/dynamic";
+import HandleSearchResults from "../HandleSearchResults";
+const ResultBoxDynamic = dynamic(() => import("./ResultBox"))
 const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInternalState, internalState }) => {
   const dispatch = useDispatch();
   const { loadingPickUpOneWay, appData } = useSelector(selectPickUpDropOffReducer);
@@ -35,6 +37,7 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
     }),
     {}
   );
+
   const handlePickUpField = (index) => {
     if (typeof showInputFieldPickUpIndex === "number") {
       dispatch({ type: SET_SHOW_PICK_FIELD_ONEWAY, payload: null });
@@ -43,9 +46,6 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
     dispatch({ type: SET_SHOW_DROP_FIELD_ONEWAY, payload: null });
     dispatch({ type: SET_SHOW_PICK_FIELD_ONEWAY, payload: index });
 
-    // console.log(index);
-    // console.log(pickInputsUpValue[index]);
-    // console.log(pikUpPoints);=>baslangcda bir objedir sonrasi ucun ise butun lhr yazilan pointler
     //diyelim ki lhr yazdk results geldi Yazilan inut boxdan cxb basga yere tikliyib gelib yene yazilana geldigimizde asagidaki fonksyon inputun valuesunu siler
     if (pikUpPoints) {
       setPickInputUpsValue((prev) =>
@@ -69,8 +69,7 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
     if (e.target.value.length > 2) {
       dispatch(collectPickUpPoints(e.target.value, pickOrDropp, journeyType));
     }
-    //if input value less than 3 letter it will clean  previous data
-    // if (e.target.value.length === 2) dispatch({ type: RESET_INPUT_LOADINGS });
+
   };
   const addExtraPickPoint = (pickUpItem) => {
     // console.log(pickUpItem);
@@ -142,10 +141,11 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
 
       e.target.style.opacity = 0
       let navbarElement = document.querySelector("#navbar_container")
+      console.log({ navbarElement });
+
       navbarElement.style.display = "none"
       setInternalState({ [`${destination}-search-focus-${index}`]: window.innerWidth > 990 ? false : true })
       const container = document?.querySelector("#content");
-
       e.target.style.opacity = 1
       setTimeout(() => {
         window.scroll({
@@ -158,6 +158,7 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
 
     }
   }
+  console.log(internalState);
 
   useEffect(() => {
     selectedPickupOnewayPoints.map((selectedItem, index) => {
@@ -169,12 +170,6 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
       );
     });
   }, [selectedPickupOnewayPoints]);
-  // console.log(pickInputsUpValue, "pickInputsUpValue");
-
-
-  // console.log(pickUpCounts, selectedPickupOnewayPoints.length > 0);
-  // console.log(selectedPickupOnewayPoints);
-
   // bunu yaziriqki quotationa gedib geri gayidanda statedeki verilerin sayisi geder pick up points olsun
   useEffect(() => {
     if (selectedPickupOnewayPoints.length > 0) {
@@ -191,8 +186,6 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
     }
 
   }, [selectedPickupOnewayPoints])
-  // console.log(pickUpCounts, "pickUpCounts");
-  // console.log(pickInputsUpValue, "pickInputsUpValue");
 
 
   return (
@@ -212,35 +205,15 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
                 {!selectedPickupOnewayPoints[index]?.address && pickInputsUpValue[index]?.checkInQuotation ? (<span className="error">required</span>) : ("")}
               </p>
               <div className={styles.input_div_display_box}>
-                <div
-                  // yani buna tikladigimda seeaRCH BOX ACILIR
-                  onClick={() => handlePickUpField(index)}
-                  // checking error in case of if points exist or not || if div has text or not
-                  className={`${styles.display_box_text}
-                  ${pickInputsUpValue[pickUpItem]?.errorMessage.length > 0
-                      ? "required"
-                      : ""
-                    }
-
-                  ${!selectedPickupOnewayPoints[index]?.address &&
-                      pickInputsUpValue[index].checkInQuotation
-                      ? "required"
-                      : ""
-                    }
-                  `}
-                >
+                {/* // checking error in case of if points exist or not || if div has text or not
+                // yani buna tikladigimda seeaRCH BOX ACILIR */}
+                <div onClick={() => handlePickUpField(index)} className={`${styles.display_box_text}   ${pickInputsUpValue[pickUpItem]?.errorMessage.length > 0 ? "required" : ""}  ${!selectedPickupOnewayPoints[index]?.address && pickInputsUpValue[index].checkInQuotation ? "required" : ""}  `}   >
                   {imageObjects &&
                     selectedPickupOnewayPoints[index]?.address && (
-                      <img
-                        className={styles.left_icon}
-                        src={`${env.apiDomain}${imageObjects[selectedPickupOnewayPoints[index]?.pcatId]}`}
-                        alt={selectedPickupOnewayPoints[index]?.address}
-                      />
+                      <img className={styles.left_icon} src={`${env.apiDomain}${imageObjects[selectedPickupOnewayPoints[index]?.pcatId]}`} alt={selectedPickupOnewayPoints[index]?.address} />
                     )}
                   <p>
-                    {selectedPickupOnewayPoints[index]?.address
-                      ? substrText(selectedPickupOnewayPoints[index]?.address)
-                      : "Airport,Hotelor Full Cost Code .."}{" "}
+                    {selectedPickupOnewayPoints[index]?.address ? substrText(selectedPickupOnewayPoints[index]?.address) : "Airport,Hotel or Full Postcode .."}{" "}
                   </p>
                   {/* angle up down icon */}
                   {showInputFieldPickUpIndex === index ? (
@@ -253,6 +226,7 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
                     ></i>
                   )}
                 </div>
+
                 {/* trahs icon */}
                 {pickUpItem !== 0 && (
                   <i
@@ -262,6 +236,7 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
                 )}
               </div>
             </div>
+
             <div className={`${styles.result_box} `} >
               {showInputFieldPickUpIndex === index && (
                 <div className={`${styles['search-input-container']} ${styles.search_box}`} f={String(internalState[`pickup-search-focus-${index}`])} id="content">
@@ -290,10 +265,11 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
                 </div>
               )}
             </div>
+
             {index + 1 === pickUpCounts.length && (
               <div className={styles.add_extrafly_div} onClick={() => addExtraPickPoint(pickUpItem)}    >
                 <i className={`fa-solid fa-plus ${styles.add_extrafly_div_icon}`}   ></i>
-                <p className={styles.add_extrafly_div_text}> Add Extra Pick-up Point   </p>
+                Add Extra Pick-up Point
               </div>
             )}
           </div>

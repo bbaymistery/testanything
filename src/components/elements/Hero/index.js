@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import HeroContent from "./HeroContent";
 import Oneway from "../OneWay";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -16,8 +15,7 @@ import {
   SET_SHOW_PICK_FIELD_ONEWAY,
   SET_SHOW_PICK_FIELD_RETURN,
 } from "../../../store/showFieldReducer/showFieldTypes";
-import ReturnJourney from "../Return";
-import CarIcon from "./CarIcon";
+
 import RadioButton from "./RadioButton";
 import { selectedJourneyType, selectHeroContentError } from "../../../store/pickUpDropOffReducer/pickUpDropSelectors";
 import { gettingQuotations } from "../../../store/pickUpDropOffReducer/pickUpDropAction";
@@ -26,15 +24,18 @@ import {
   SET_DATE_TIME,
   SWITCH_JOURNEY,
 } from "../../../store/pickUpDropOffReducer/pickUpDropTypes";
+import dynamic from "next/dynamic";
 
 import { useRouter } from "next/router";
+import HeroSlider from "../HeroSlider";
+import { useWindowSize } from "../../../hooks/useWindowSize";
+
+const ReturnDynamic = dynamic(() => import("../Return"))
+const HeroCarIcon = dynamic(() => import("../HeroCarIcon/HeroCarIcon"))
 //when ever i will want to use this content with spesific classnames i will send props
-const Hero = ({ isHeroContentActive = true, isBgImageActive }) => {
+const Hero = ({ isBgImageActive }) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  // const selectShowTimePicker = useSelector(showTimePicker); //oneway
-  // const selectReturnShowTimePicker = useSelector(showReturnTimePicker);
-
   const [jouryName, setJouryName] = useState("Oneway");
   //divin uzerine tikladigimizda input fieldin aclb baglanmasi ucun bunu istifade edirik
   const showInputFieldPickUpIndex = useSelector(onewayShowInputPickField);
@@ -93,9 +94,8 @@ const Hero = ({ isHeroContentActive = true, isBgImageActive }) => {
 
   const [errorDisabledMessageTransfer, seterrorDisabledMessageTransfer] = useState("")
   const [errorDisabledMessageReturn, seterrorDisabledMessageReturn] = useState("")
-  console.log({ errorDisabledMessageTransfer },
-    { errorDisabledMessageReturn });
-
+  let size = useWindowSize()
+  let { width } = size
   const closeOpenedFieldOutside = (e) => {
 
     if (typeof showInputFieldDroppOff === "number") {
@@ -239,18 +239,14 @@ const Hero = ({ isHeroContentActive = true, isBgImageActive }) => {
     }
   };
   useEffect(() => {
-    // dispatch(getAppData());
-    if (500 > document.documentElement.clientWidth) {
-      window.scrollTo({
-        top: 156,
-        left: 0,
-        behavior: "smooth",
-      });
-    }
+
     let isApple = mobileAndTabletCheck();
     if (isApple) {
       const box = document.querySelector("#heroBox");
       box.style.backgroundAttachment = "initial";
+    }
+    if (+selectJourneyType === 1) {
+      dispatch({ type: "RESET_JOURNEY_TO_INITIAL", payload: 0, });
     }
   }, []);
 
@@ -262,11 +258,7 @@ const Hero = ({ isHeroContentActive = true, isBgImageActive }) => {
     }
   }, [jouryName]);
 
-  useEffect(() => {
-    if (+selectJourneyType === 1) {
-      dispatch({ type: "RESET_JOURNEY_TO_INITIAL", payload: 0, });
-    }
-  }, [])
+
 
 
   return (
@@ -274,16 +266,16 @@ const Hero = ({ isHeroContentActive = true, isBgImageActive }) => {
       <div className={`${styles.hero_box}`} id="heroBox">
         <div className={styles.containerr}>
           <div className={styles.content}>
-            {isHeroContentActive ? <HeroContent /> : ""}
-            <CarIcon />
+
+            {width < 1200 ? <></> : <HeroSlider />}
+            {width < 768 ? <></> : <HeroCarIcon />}
+
             <div className={styles.tab_content}>
               <h2 className={styles.tab_pane_title}>
                 Airport Transfer Quotations
               </h2>
               <RadioButton hadnleInputRadioChange={hadnleInputRadioChange} jouryName={jouryName} />
               <div className={styles.tab_pane}>
-                {/* ! radio buttons */}
-                {/* form onew way  */}
                 {jouryName === "Return" && (
                   <h4 className={styles.trdetails_title}>Transfer Details</h4>
                 )}
@@ -301,11 +293,11 @@ const Hero = ({ isHeroContentActive = true, isBgImageActive }) => {
                 />
                 {errorDisabledMessageTransfer ? <p className={styles.errorBookedMessage}>{errorDisabledMessageTransfer}</p> : <></>}
 
-                {jouryName === "Return" && (
+                {jouryName === "Return" ? (
                   <h4 className={styles.returndetails_title}>Return Details</h4>
-                )}
-                {jouryName === "Return" && (
-                  <ReturnJourney
+                ) : <></>}
+                {jouryName === "Return" ? (
+                  <ReturnDynamic
                     jouryName={jouryName}
                     onchangeHandler={onchangeHandler}
                     pickInputsUpValueReturn={pickInputsUpValueReturn}
@@ -317,15 +309,9 @@ const Hero = ({ isHeroContentActive = true, isBgImageActive }) => {
                     internalState={internalState}
                     setInternalState={setInternalState}
                   />
-                )}
+                ) : <></>}
                 {errorDisabledMessageReturn ? <p className={styles.errorBookedMessage}>{errorDisabledMessageReturn}</p> : <></>}
-
-                <div
-                  className={`${styles.error_div} alert alert_danger`}
-                  style={{
-                    display: `${HeroContentError ? "block" : "none"}`,
-                  }}
-                >
+                <div className={`${styles.error_div} alert alert_danger`} style={{ display: `${HeroContentError ? "block" : "none"}`, }}   >
                   <strong>Error! </strong>
                   <span>
                     Please fill the empty locations first to add new location

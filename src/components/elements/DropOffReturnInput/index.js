@@ -21,6 +21,7 @@ import {
 } from "../../../store/pickUpDropOffReducer/pickUpDropAction";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import env from "../../../resources/env";
+import Image from "next/image";
 const DropOffReturnInput = ({ dropInputsOffValueReturn, setDropInputsOffValueReturn, setInternalState, internalState }) => {
   const dispatch = useDispatch();
   const selectedPickupDropPoints = useSelector(returnDropOffPointsReturn);
@@ -221,6 +222,7 @@ const DropOffReturnInput = ({ dropInputsOffValueReturn, setDropInputsOffValueRet
                 <span>
                   {selectedPickupDropPoints[index]?.address && (
                     <i className="fa-solid fa-check"></i>
+
                   )}
                   Drop Off Location {droppCounts.length > 1 && index + 1}
                 </span>
@@ -259,7 +261,7 @@ const DropOffReturnInput = ({ dropInputsOffValueReturn, setDropInputsOffValueRet
                   <p>
                     {selectedPickupDropPoints[index]?.address
                       ? substrText(selectedPickupDropPoints[index]?.address)
-                      : "Airport,Hotelor Full Cost Code .."}{" "}
+                      : "Airport,Hotel or Full Postcode .."}{" "}
                   </p>
                   {showInputFieldDroppIndex === index ? (
                     <i
@@ -285,7 +287,8 @@ const DropOffReturnInput = ({ dropInputsOffValueReturn, setDropInputsOffValueRet
                 <div className={`${styles['search-input-container']} ${styles.search_box}`} f={String(internalState[`dropoff-search-focus-1`])} id="content">
                   <div className={styles.popup_header} f={String(internalState[`dropoff-search-focus-1`])}>
                     <i className={`fa-solid fa-xmark ${styles.close_icon}`} onClick={(e) => closeModal({ index: 1, destination: "dropoff" })}></i>
-                    <p>From ?</p>
+
+                    <p>Where ?</p>
                   </div>
                   <div className={styles.search_box_input_div}>
                     <input
@@ -324,17 +327,11 @@ const DropOffReturnInput = ({ dropInputsOffValueReturn, setDropInputsOffValueRet
               )}
             </div>
             {index + 1 === droppCounts.length && (
-              <div
-                className={styles.add_extrafly_div}
-                onClick={() => addExtraPickPoint(pickUpItem)}
-              >
+              <div className={styles.add_extrafly_div} onClick={() => addExtraPickPoint(pickUpItem)}   >
                 <i
                   className={`fa-solid fa-plus ${styles.add_extrafly_div_icon}`}
                 ></i>
-                <p className={styles.add_extrafly_div_text}>
-                  {" "}
-                  Add Extra Pick-up Point
-                </p>
+                Add Extra Pick-up Point
               </div>
             )}
           </div>

@@ -4,14 +4,12 @@
        padding-bottom: 100px;
        position: relative;
        z-index: 1;
-       //    background-image: url('/images/hero.png');
        background-image: url('/images/herooo.jpeg');
        background-repeat: no-repeat;
        background-size: 100%;
        background-position: center;
        width: 100%;
 
-       @media (max-width:768px) {}
 
        .breadcrumb_container {
            margin: 0 var(--window-margin);
@@ -24,7 +22,6 @@
                @media (max-width:800px) {
                    text-align: center;
                }
-
            }
        }
    }

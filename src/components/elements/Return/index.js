@@ -17,6 +17,7 @@ import DropOffReturnInput from "../DropOffReturnInput";
 import LoadingInput from "../LoadingInput";
 import { hourss, minutes } from "../../../constants/showCase";
 import TimePickerHourMinute from "../TimePickerHourMinute";
+import Image from "next/image";
 const ReturnJourney = ({
   jouryName = "",
   onchangeHandler,
@@ -35,7 +36,6 @@ const ReturnJourney = ({
   const selectedDropOffReturnPoints = useSelector(returnDropOffPointsReturn);
   const selectedPickupOnewayPoints = useSelector(onewayPickUpPointsOneWay);
   const selectedDroppOffOnewayPoints = useSelector(onewayDroopOffPointsOneWay);
-  // const selectQuotReturnLoading = useSelector(quotReturnLoading);
   const selectBothQuotLoading = useSelector(quotBothLoading);
 
   const [dateReturn, setDateReturn] = useState(null)

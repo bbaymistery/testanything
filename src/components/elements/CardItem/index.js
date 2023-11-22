@@ -67,7 +67,7 @@ const CardItem = (props) => {
                   <img
                     src={`${env.apiDomain}${carObject[item?.carId]?.image
                       }`}
-                    alt="car"
+                    alt="car1"
                   />
                   <span className={styles.car_title}>
                     {carObject[item?.carId]?.name}
@@ -273,7 +273,7 @@ const CardItem = (props) => {
                     <img
                       src={`${env.apiDomain}${carObject[item?.carId]?.image
                         }`}
-                      alt="car"
+                      alt="car2"
                     />
                   </div>
                   {/* <i class="fa-solid fa-gauge-high"></i> */}

@@ -21,6 +21,7 @@ import {
 } from "../../../store/pickUpDropOffReducer/pickUpDropAction";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 import env from "../../../resources/env";
+import Image from "next/image";
 const PickUpReturnInput = ({ pickInputsUpValueReturn, setPickInputUpsValueReturn, setInternalState, internalState }) => {
   const dispatch = useDispatch();
 
@@ -221,6 +222,7 @@ const PickUpReturnInput = ({ pickInputsUpValueReturn, setPickInputUpsValueReturn
                 <span>
                   {selectedPickupReturnPoints[index]?.address && (
                     <i className="fa-solid fa-check"></i>
+
                   )}
                   Pick Up Location {pickUpCounts.length > 1 && index + 1}
                 </span>
@@ -261,7 +263,7 @@ const PickUpReturnInput = ({ pickInputsUpValueReturn, setPickInputUpsValueReturn
                   <p>
                     {selectedPickupReturnPoints[index]?.address
                       ? substrText(selectedPickupReturnPoints[index]?.address)
-                      : "Airport,Hotelor Full Cost Code .."}{" "}
+                      : "Airport,Hotel or Full Postcode .."}{" "}
                   </p>
                   {showInputFieldPickUpIndex === index ? (
                     <i
@@ -286,6 +288,7 @@ const PickUpReturnInput = ({ pickInputsUpValueReturn, setPickInputUpsValueReturn
                 <div className={`${styles['search-input-container']} ${styles.search_box}`} f={String(internalState[`pickup-search-focus-1`])} id="content">
                   <div className={styles.popup_header} f={String(internalState[`pickup-search-focus-1`])}>
                     <i className={`fa-solid fa-xmark ${styles.close_icon}`} onClick={(e) => closeModal({ index: 1, destination: "pickup" })}></i>
+
                     <p>From ?</p>
                   </div>
                   <div className={styles.search_box_input_div}>
@@ -300,6 +303,7 @@ const PickUpReturnInput = ({ pickInputsUpValueReturn, setPickInputUpsValueReturn
                       f={String(internalState[`pickup-search-focus-1`])} //giving a style if we focused
                     />
                     <i className="fa-solid fa-magnifying-glass"></i>
+
                     {loadingPickUpReturn && (
                       <div className={styles.loading_div}>
                         <LoadingInput />
@@ -331,10 +335,7 @@ const PickUpReturnInput = ({ pickInputsUpValueReturn, setPickInputUpsValueReturn
                 <i
                   className={`fa-solid fa-plus ${styles.add_extrafly_div_icon}`}
                 ></i>
-                <p className={styles.add_extrafly_div_text}>
-                  {" "}
-                  Add Extra Pick-up Point
-                </p>
+                Add Extra Pick-up Point
               </div>
             )}
           </div>

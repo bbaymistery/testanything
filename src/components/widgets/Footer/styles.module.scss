@@ -9,7 +9,6 @@
     padding-left: 0px;
 
     .section_inside {
-
         margin: 0 var(--window-margin);
 
         .section_container_inside {
@@ -21,7 +20,6 @@
 
                 @media (max-width:910px) {
                     flex-direction: column;
-
                 }
 
                 .box {
@@ -29,6 +27,7 @@
 
                     .text_color {
                         color: $yellow;
+                        font-size: 22px;
                     }
 
                     .text_white {
@@ -53,10 +52,7 @@
                             @media (max-width:370px) {
                                 font-size: 13px;
                             }
-
-
                         }
-
                     }
 
                     h4 {
@@ -66,8 +62,6 @@
                     }
                 }
             }
-
-
         }
     }
 }

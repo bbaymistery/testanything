@@ -4,10 +4,10 @@ import styles from "./elgun.module.scss";
 function TextInput(props) {
   let {
     value = "",
-    onChange = (e) => {},
-    onFocus = (e) => {},
-    onBlur = (e) => {},
-    clickClearFieldIcon = (e) => {},
+    onChange = (e) => { },
+    onFocus = (e) => { },
+    onBlur = (e) => { },
+    clickClearFieldIcon = (e) => { },
     name = "",
     title = "",
     icon = "",
@@ -27,7 +27,7 @@ function TextInput(props) {
         <div className={`${styles.form_control}`}>
           {!noErrorMessage && (
             <div className={`${styles.form_control_header} `}>
-              <p className={styles.form_control_header_label}>{title}</p>
+              <label htmlFor={name} className={styles.form_control_header_label}>{title}</label>
               <p className={styles.form_control_header_error_message}>
                 {errorMessage && errorMessage}
               </p>
@@ -35,23 +35,22 @@ function TextInput(props) {
           )}
           <div className={`${styles.input_div} `}>
             <i
-              className={`${styles.input_icon} fa-solid fa-${icon} ${
-                focused ? styles.input_icon_animation : ""
-              }`}
+              className={`${styles.input_icon} fa-solid fa-${icon} ${focused ? styles.input_icon_animation : ""
+                }`}
             ></i>
             <input
               autoComplete="off"
               placeholder={focused ? "" : placeholder}
               name={name}
-              className={`${styles.input} ${
-                errorMessage ? styles.error_input_border : ""
-              }`}
+              className={`${styles.input} ${errorMessage ? styles.error_input_border : ""
+                }`}
               onChange={onChange}
               onFocus={onFocus}
               onBlur={onBlur}
               type={type}
               value={value}
               readOnly={readOnly}
+              id={name}
             />
             {focused && (
               <i

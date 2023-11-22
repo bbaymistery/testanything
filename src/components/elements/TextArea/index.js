@@ -23,7 +23,7 @@ const TextArea = (props) => {
         <div className={`${styles.form_control} `}>
           {!noErrorMessage && (
             <div className={`${styles.form_control_header} `}>
-              <p className={styles.form_control_header_label}>{title}</p>
+              <label htmlFor={name} className={styles.form_control_header_label}>{title}</label>
               <p className={styles.form_control_header_error_message}>
                 {errorMessage && errorMessage}
               </p>
@@ -35,9 +35,9 @@ const TextArea = (props) => {
               placeholder={placeholder}
               onChange={onChange}
               name={name}
+              id={name}
               className={`${styles.textarea} ${errorMessage && styles.error_textarea_border
                 }`}
-              id=""
               value={value}
             ></textarea>
           </div>

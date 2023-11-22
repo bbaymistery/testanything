@@ -312,28 +312,19 @@ export const setPayment = (id, token, router) => (dispatch) => {
 
 //words cartypes categorytypes ...
 export const getAppData = () => (dispatch) => {
-  const url = `${env.apiDomain}/app/en`;
-  const config = {
-    method: "GET",
-  };
-  fetch(url, config)
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({ type: GET_APP_DATA, payload: data });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const appDataUrl = `${env.apiDomain}/app/en`;
+  const paymentTypesUrl = `${env.apiDomain}/api/v1/payment-types`;
 
-  //getting all payment types
-  //
-  const urlPaymentTypes = `${env.apiDomain}/api/v1/payment-types`;
-  fetch(urlPaymentTypes, config)
-    .then((res) => res.json())
-    .then((data) => {
-      dispatch({ type: GET_PAYMENT_DATA, payload: data });
+  Promise.all([
+    fetch(appDataUrl).then(res => res.json()),
+    fetch(paymentTypesUrl).then(res => res.json()),
+  ])
+    .then(([appData, paymentTypes]) => {
+      dispatch({ type: GET_APP_DATA, payload: appData });
+      dispatch({ type: GET_PAYMENT_DATA, payload: paymentTypes });
+
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
     });
 };

@@ -34,13 +34,12 @@ const HandleSearchResults = ({
     }),
     {}
   );
-  // console.log(objectDetailss);
 
   const [newItems, setNewItems] = useState(null);
   const [noResult, setNoresult] = useState(false);
   const handleAddItemToSelectList = (item) => {
     //sending request to google placeis
-console.log(indexOfInputField);
+    console.log(indexOfInputField);
 
     dispatch(
       addItemToSelectedList(
@@ -80,14 +79,10 @@ console.log(indexOfInputField);
       });
 
       if (newA[0] === true) setNoresult(true);
-      //console.log(newA); // [Array(4), Array(30)]
-      // console.log("newA", newA);
 
       setNewItems(newA);
     } else {
       setNoresult(true);
-      // console.log("sdas");
-
     }
   }, [params]);
 
@@ -106,53 +101,21 @@ console.log(indexOfInputField);
                     {i === 0 && (
                       <li key={i} className={i === 0 ? styles.groupName : ""}>
                         {item.pcatId === 10 ? (
-                          <img
-                            src={`${env.apiDomain}/media/g-google.svg`}
-                            alt=""
-                          />
+                          <img src={`${env.apiDomain}/media/g-google.svg`} alt="g-google.svg" />
                         ) : (
-                          imgObj && (
-                            <img
-                              src={`${env.apiDomain}${imgObj[item.pcatId]
-                                }`}
-                              alt=""
-                              style={{
-                                transform: `${item.pcatId === 1 ? "rotate(-30deg)" : ""
-                                  }`,
-                              }}
-                            />
-                          )
-                        )}
+                          imgObj && (<img src={`${env.apiDomain}${imgObj[item.pcatId]}`} alt="g-google.svg" style={{ transform: `${item.pcatId === 1 ? "rotate(-30deg)" : ""}`, }} />))}
 
                         <a href="/location/londiani-188981">
                           {namePlaceOfObj && namePlaceOfObj[item.pcatId]}
                         </a>
-                        {item.pcatId === 10 && (
-                          <img
-                            src={
-                              `${env.apiDomain}/media/powered-by-google.png`
-                            }
-                            alt=""
-                            className={styles.googleImage}
-                          />
-                        )}
+                        {item.pcatId === 10 && (<img src={`${env.apiDomain}/media/powered-by-google.png`} alt="powered-by-google" className={styles.googleImage} />)}
                       </li>
                     )}
 
                     {/* //!this is for the rest of subNames */}
                     <li onClick={() => handleAddItemToSelectList(item)}>
-                      {/* <li> */}
                       {imgObj && (
-                        <img
-                          src={`${env.apiDomain}${imgObj[item.pcatId]
-                            }`}
-                          alt=""
-                          style={{
-                            transform: `${item.pcatId === 1 ? "rotate(-30deg)" : ""
-                              }`,
-                          }}
-                        />
-                      )}
+                        <img src={`${env.apiDomain}${imgObj[item.pcatId]}`} alt="powered-by" style={{ transform: `${item.pcatId === 1 ? "rotate(-30deg)" : ""}`, }} />)}
                       <p href="/location/londiani-188981">
                         {item.address}
                         {`   ${item?.postcode ? `-  ${item?.postcode}` : ""}`}

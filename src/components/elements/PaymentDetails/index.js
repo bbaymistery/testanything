@@ -42,12 +42,12 @@ const PaymentDetail = ({ setConfirmation }) => {
 
   const fetchArchieveToken = async (params = {}) => {
     let { token, paymentType, stage } = params
- 
+
 
     let reservationObj =
       Number(journeyType) === 1 ? reservations : [reservations[0]];
     console.log({ length: reservationObj.length > 1 });
-      
+
     if (reservationObj.length > 1) {
       reservationObj = [
         {
@@ -82,8 +82,8 @@ const PaymentDetail = ({ setConfirmation }) => {
     let url = `${env.apiDomain}/api/v1/sessions/add`;
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({  token: selectedArchieveToken,  details: reservationObj,  stage  }),
-      headers: { "Content-Type": "application/json",  },
+      body: JSON.stringify({ token: selectedArchieveToken, details: reservationObj, stage }),
+      headers: { "Content-Type": "application/json", },
     });
     const data = await response.json();
 
@@ -184,7 +184,7 @@ const PaymentDetail = ({ setConfirmation }) => {
 
           if (resp?.status === 200) {
             console.log(resp);
-        
+
 
 
             if (dataTokenForWebSocket?.href?.includes("paypal")) {
@@ -283,7 +283,7 @@ const PaymentDetail = ({ setConfirmation }) => {
               <div className={styles.topright_circle}> </div>
               <div className={styles.bottomright_circle}> </div>
               <p>Pay Cash to Driver </p>
-              <img src="/images/cash.png" alt="" />
+              <img src="/images/cash.png" alt="cash" />
             </div>
 
             <div
@@ -296,7 +296,7 @@ const PaymentDetail = ({ setConfirmation }) => {
               <div className={styles.topright_circle}> </div>
               <div className={styles.bottomright_circle}> </div>
               <p>Pay by Card </p>
-              <img src="/images/vsMaster.jpg" alt="" />
+              <img src="/images/vsMaster.jpg" alt="master" />
             </div>
           </div>
         </div>

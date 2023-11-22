@@ -5,7 +5,7 @@ const LogoDiv = () => {
     <div className={styles.logo_div}>
       <div className={styles.content}>
         <div className={styles.img_div}>
-          <img src="/images/londonTaxi.jpeg" alt="" />
+          <img src="/images/londonTaxi.jpeg" alt="logo image" />
         </div>
         <div className={styles.text}>
           <h1>LONDON - HEATHROW TAXI</h1>

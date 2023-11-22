@@ -1,7 +1,7 @@
 export const betwenItems = [
   {
     id: 1,
-    img: "/images/destCardTerminal2.jpg",
+    img: "/images/destCardTerminal2.webp",
     title: "Heathrow Inter Terminal Transfer",
     address: "Heathrow beetween the terminals",
     description:

@@ -1,5 +1,4 @@
 import React from "react";
-
 import styles from "./styles.module.scss";
 const TopHeader = () => {
   return (
@@ -8,7 +7,7 @@ const TopHeader = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <a href={"/"} className={styles.content_title_a}>
-            <h1 className={`${styles.top_header_title} ${styles.h1}`}>
+            <h1 className={`${styles.top_header_title} `}>
               LONDON - HEATHROW TAXI
             </h1>
           </a>

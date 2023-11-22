@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./style.module.scss";
+import Image from "next/image.js";
+
 const TopDestination = () => {
+
   return (
     <div className={styles.top_destination}>
       <div className={`container ${styles.dest_container}`}>
@@ -8,24 +11,17 @@ const TopDestination = () => {
         <div className={styles.thumbs}>
           <div className={styles.thumb}>
             <header className={styles.thumb_header}>
-              <a
-                className={styles.hover_img_tag}
-                href="/heathrow-central-london"
-              >
-                <img
-                  className={styles.hover_img}
-                  src="/images/destCard1.jpg"
-                  alt="destCard1"
-                />
+              <a className={styles.hover_img_tag} href="/heathrow-central-london" >
+                <Image layout="responsive" width={400} height={260} className={styles.hover_img} src="/images/destCard1.webp" alt="Heathrow-central-london card 1" />
               </a>
             </header>
             <div className={styles.icon_left}>
               <i className="fa fa-plane"></i>
             </div>
             <div className={styles.thumb_caption}>
-              <h4 className={styles.thumb_title}>
+              <h3 className={styles.thumb_title}>
                 <a href="/heathrow-central-london">Heathrow Central London</a>
-              </h4>
+              </h3>
               <div className={styles.thumb_caption}>
                 <p className={styles.thumb_desc}>
                   Best way to travel from Heathrow to Central London? Private
@@ -36,24 +32,17 @@ const TopDestination = () => {
           </div>
           <div className={styles.thumb}>
             <header className={styles.thumb_header}>
-              <a
-                className={styles.hover_img_tag}
-                href="/heathrow-central-london"
-              >
-                <img
-                  className={styles.hover_img}
-                  src="/images/destCardTerminal2.jpg"
-                  alt="destCard2"
-                />
+              <a className={styles.hover_img_tag} href="/heathrow-central-london"  >
+                <Image layout="responsive" width={400} height={260} className={styles.hover_img} src="/images/destCardTerminal2.webp" alt="Heathrow-central-london card 2" />
               </a>
             </header>
             <div className={styles.icon_left}>
               <i className="fa fa-plane"></i>
             </div>
             <div className={styles.thumb_caption}>
-              <h4 className={styles.thumb_title}>
+              <h3 className={styles.thumb_title}>
                 <a href="/heathrow-central-london">Heathrow Central London</a>
-              </h4>
+              </h3>
               <div className={styles.thumb_caption}>
                 <p className={styles.thumb_desc}>
                   Best way to travel from Heathrow to Central London? Private
@@ -65,24 +54,17 @@ const TopDestination = () => {
 
           <div className={styles.thumb}>
             <header className={styles.thumb_header}>
-              <a
-                className={styles.hover_img_tag}
-                href="/heathrow-central-london"
-              >
-                <img
-                  className={styles.hover_img}
-                  src="/images/destCard3.jpg"
-                  alt="destCard3"
-                />
+              <a className={styles.hover_img_tag} href="/heathrow-central-london"   >
+                <Image layout="responsive" width={400} height={260} className={styles.hover_img} src="/images/destCard3.webp" alt="Heathrow-central-london card 3" />
               </a>
             </header>
             <div className={styles.icon_left}>
               <i className="fa fa-plane"></i>
             </div>
             <div className={styles.thumb_caption}>
-              <h4 className={styles.thumb_title}>
+              <h3 className={styles.thumb_title}>
                 <a href="/heathrow-central-london">Heathrow Central London</a>
-              </h4>
+              </h3>
               <div className={styles.thumb_caption}>
                 <p className={styles.thumb_desc}>
                   Best way to travel from Heathrow to Central London? Private

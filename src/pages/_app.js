@@ -6,7 +6,6 @@ import store from "../store/store";
 import { getAppData } from "../store/pickUpDropOffReducer/pickUpDropAction";
 import { SET_SELECT_ACTIVE_LINK } from "../store/pickUpDropOffReducer/pickUpDropTypes";
 import { useDispatch } from "react-redux";
-import Head from "next/head";
 import env from "../resources/env";
 
 
@@ -41,37 +40,19 @@ function MyApp({ Component, pageProps }) {
         }
       }
     }
-  }, [])
-  useEffect(() => {
     dispatch({
       type: SET_SELECT_ACTIVE_LINK,
       payload: "home",
     });
     dispatch(getAppData());
-  }, []);
+
+  }, [])
+
 
   return (
-    <>
-      <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99673497-1"></script>
-        <script>{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-99673497-1');
-        `}</script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-851637210"></script>
-        <script dangerouslySetInnerHTML={{__html:`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-851637210');`}} ></script>
-      </Head>
-
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    </>
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
   );
 }
 const makestore = () => store;

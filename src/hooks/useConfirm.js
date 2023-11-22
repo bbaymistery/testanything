@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 
 export function useConfirm(params = {}) {
-    let { previousUrl, nextUrl, messsage = "If you leave the page, all data will be deleted.",  } = params
+    let { previousUrl, nextUrl, messsage = "If you leave the page, all data will be deleted.", } = params
     const [confMessage, setConfMessage] = useState(messsage);
 
     const router = useRouter()

@@ -119,58 +119,51 @@ const TimePickerHourMinute = (props) => {
       <p className={styles.labelText}>{title}</p>
       <div className={styles.dropholder} onClick={openDropDown}>
         <div
-          className={`
-           ${styles.dropdown}
-           ${dropdownActive ? styles.DropDownActive : ""}
-           ${errorMessage ? styles.errrorDropdown : ""}`}
-        >
+          className={`   ${styles.dropdown}  ${dropdownActive ? styles.DropDownActive : ""}  ${errorMessage ? styles.errrorDropdown : ""}`}    >
           <p className={styles.holder} data-id={name}>
             {name === "hour" ? activeHour : activeMinute}
           </p>
         </div>
         <ul
-          className={`${styles.dropdownOption} ${
-            name === "hour"
-              ? styles.dropdownOptionHour
-              : styles.dropdownOptionMinute
-          } `}
+          className={`${styles.dropdownOption} ${name === "hour"
+            ? styles.dropdownOptionHour
+            : styles.dropdownOptionMinute
+            } `}
           name={name}
         >
           {name === "hour" && opt.length > 0 && dropdownActive
             ? opt.map((item, i) => {
-                return (
-                  <li
-                    onClick={(e) => selectValue(e, i)}
-                    className={`${styles.li} ${
-                      Number(activeHour) === Number(item.value)
-                        ? styles.current
-                        : ""
+              return (
+                <li
+                  onClick={(e) => selectValue(e, i)}
+                  className={`${styles.li} ${Number(activeHour) === Number(item.value)
+                    ? styles.current
+                    : ""
                     }`}
-                    key={item.id}
-                    value={item.value}
-                    name={name}
-                  >
-                    {item.value}
-                  </li>
-                );
-              })
+                  key={item.id}
+                  value={item.value}
+                  name={name}
+                >
+                  {item.value}
+                </li>
+              );
+            })
             : opt.map((item, i) => {
-                return (
-                  <li
-                    onClick={(e) => selectValue(e, i)}
-                    className={`${styles.li} ${
-                      Number(activeMinute) === Number(item.value)
-                        ? styles.current
-                        : ""
+              return (
+                <li
+                  onClick={(e) => selectValue(e, i)}
+                  className={`${styles.li} ${Number(activeMinute) === Number(item.value)
+                    ? styles.current
+                    : ""
                     }`}
-                    key={item.id}
-                    value={item.value}
-                    name={name}
-                  >
-                    {item.value}
-                  </li>
-                );
-              })}
+                  key={item.id}
+                  value={item.value}
+                  name={name}
+                >
+                  {item.value}
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>

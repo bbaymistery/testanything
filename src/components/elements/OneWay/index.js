@@ -20,6 +20,7 @@ import DropOffOneWayInput from "../DropOffOneWayInput";
 import { SET_DATE_TIME } from "../../../store/pickUpDropOffReducer/pickUpDropTypes";
 import LoadingInput from "../LoadingInput";
 import { useState } from "react";
+import Image from "next/image";
 //ochnage jouryName comes from hero content
 //pcikUpInputsValueOnewayin input value laridir hero componentinnen gelir
 const Oneway = ({
@@ -31,24 +32,19 @@ const Oneway = ({
   setDropInputsOffValue,
   getQuotation, //hero comp
   resetForm,
-  internalState, 
+  internalState,
   setInternalState, errorDisabledMessageTransfer
 }) => {
   const dispatch = useDispatch();
   const selectedDateTimeOneway = useSelector(onewayDateTimeString);
   const selectedDateTimeReturn = useSelector(returnDateTimeString);
-  const selectJourneyType = useSelector(selectedJourneyType);
   const selectQuotTransferLoading = useSelector(quotTransferLoading);
   const selectedPickupOnewayPoints = useSelector(onewayPickUpPointsOneWay);
   const selectedDroppOffOnewayPoints = useSelector(onewayDroopOffPointsOneWay);
-
-
-
   let [dateOneway, setDateOneway] = useState(null)
 
   //*eger Oneway tarixi Return ile eyni olarsa ve ya boyuk olarsa return tarixinin otomatik olarag 3 4 saat gabaga atlmasi
   useEffect(() => {
-    // if (Number(selectJourneyType) === 1) {
     let ThreeHourInMilliSecond = 1000 * 60 * 60 * 24;
     let returnDateInMilliSecond = new Date(selectedDateTimeReturn).getTime();
     let transferDateInMilliSecond = new Date(
@@ -64,19 +60,11 @@ const Oneway = ({
         .toISOString()
         .split("T")[0];
 
-      let timeValue = new Date(added3hourMilliSecond)
-        .toISOString()
-        .split("T")[1];
-
-      //BUNU sifir olani tarix ucundur (SAATkismi ise timeFunksyasina eklenilecek )
-      // console.log({ dateValue, pickupOrDropOrDate, journeyType });
-
       dispatch({
         type: SET_DATE_TIME,
         payload: { dateValue, pickupOrDropOrDate, journeyType },
       });
     }
-    // }
   }, [selectedDateTimeOneway, selectedDateTimeReturn]);
 
   useEffect(() => {
@@ -85,7 +73,7 @@ const Oneway = ({
   return (
     <form action="" name="formOneway" className={styles.formOneway}>
       <div className={styles.row}>
-       
+
         <div className={`${styles.left_points} ${styles.col}`}>
           {/* //!pick up */}
           <PickUpOneWayInput
@@ -123,19 +111,19 @@ const Oneway = ({
 
           <div className={styles.time}>
             <p className={styles.time_title}>
-              {selectedPickupOnewayPoints[0]?.pcatId === 1  ? "Landing Time" : "Pickup Time"}
+              {selectedPickupOnewayPoints[0]?.pcatId === 1 ? "Landing Time" : "Pickup Time"}
             </p>
             <div className={styles.departing_time}>
               <TimePickerHourMinute
                 name="hour"
-                title={`${selectedPickupOnewayPoints[0]?.pcatId === 1  ? "Landing Hour"  : "Pick Up Hour"  }`}
+                title={`${selectedPickupOnewayPoints[0]?.pcatId === 1 ? "Landing Hour" : "Pick Up Hour"}`}
                 className={styles.hour}
                 options={hourss}
                 journeyType={0}
               />
               <TimePickerHourMinute
                 name="minute"
-                title={`${selectedPickupOnewayPoints[0]?.pcatId === 1  ? "Landing Minute" : "Pick Up Minute"  }`}
+                title={`${selectedPickupOnewayPoints[0]?.pcatId === 1 ? "Landing Minute" : "Pick Up Minute"}`}
                 journeyType={0}
                 className={"minute"}
                 options={minutes}
@@ -144,7 +132,7 @@ const Oneway = ({
           </div>
           {jouryName === "Oneway" ? (
             <div className={styles.quot_btn_div}>
-              <div  className={`btn btn_primary ${styles.quot_btn}`} onClick={(e) => getQuotation(e)}  >
+              <div className={`btn btn_primary ${styles.quot_btn}`} onClick={(e) => getQuotation(e)}  >
                 {selectQuotTransferLoading ? <LoadingInput /> : "Get Quotation"}
               </div>
 
@@ -166,11 +154,3 @@ const Oneway = ({
 };
 
 export default Oneway;
-/*
-       <TimePicker
-              value={selectedDateTimeOneway.split(" ")[1]}
-              name="TimePicker"
-              title="Pickup Time"
-              type="text"
-            />
-*/

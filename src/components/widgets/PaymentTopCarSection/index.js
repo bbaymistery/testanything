@@ -11,7 +11,7 @@ const PaymentTopCarSection = () => {
         <div className={styles.img_div}>
           <img
             src="https://www.london-heathrow.taxi/web-apps/apl/img/cars/carType-22.png"
-            alt=""
+            alt="cars"
           />
         </div>
         <ul className={styles.icons}>

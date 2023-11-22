@@ -5,7 +5,6 @@
 .formOneway {
     margin-top: 10px;
     padding: 0px 15px;
-    // border: 1px solid red;
 
     @media (max-width:1200px) {
         @include center-element
@@ -50,7 +49,6 @@
         }
 
         .left_points {
-            // border: 1px solid rgb(174, 0, 255);
             flex-basis: 58%;
             display: flex;
             gap: 1rem;
@@ -72,14 +70,12 @@
                 flex: 1;
 
                 .inp_container {
-                    // border: 1px solid blue;
                     flex: 1;
                     position: relative;
                     margin-bottom: 1rem;
 
                     .input_div {
                         user-select: none;
-                        // border: 1px solid red;
                         display: flex;
                         flex-direction: column;
                         position: relative;
@@ -109,10 +105,9 @@
                                 box-shadow: none;
                                 position: relative;
                                 padding: 0 9px 0 8px;
-                                // cursor:;
-                                color: #888;
+                                color: #2e2e2e;
                                 width: 100%;
-                                height: 32px;
+                                height: 40px;
                                 overflow: hidden;
                                 white-space: nowrap;
                                 text-decoration: none;
@@ -140,19 +135,16 @@
                                     }
                                 }
 
-                                .angleup_icon {
+                                i {
                                     flex: 1 1;
                                     display: flex;
                                     justify-content: flex-end;
                                     font-size: 11px;
-
-
-
-
                                 }
 
                                 p {
-                                    margin-left: 5px
+                                    margin-left: 5px;
+                                    font-size: 14px;
                                 }
 
                             }
@@ -164,7 +156,6 @@
                                 width: 30px;
                                 cursor: pointer;
 
-                                // z-index: 999;
                                 &:hover {
                                     transform: scale(0.99);
                                     color: red;
@@ -172,16 +163,10 @@
                                 }
                             }
                         }
-
-
-
-
-
                     }
 
                     .result_box {
                         position: relative;
-                        // background-color: red;
 
                         .search_box {
                             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -225,7 +210,7 @@
                                     width: 100%;
                                     border: 2px solid black;
                                     color: black;
-                                    padding: 2px 7px;
+                                    padding: 6px 7px;
                                     transition: $transition;
 
                                     &:focus {
@@ -253,7 +238,6 @@
                                 padding: 7px 0px;
 
                                 @media (max-width:990px) {
-                                    // height: 90px;
                                     margin-top: 0.75rem;
                                     font-size: 12px;
                                 }
@@ -266,9 +250,11 @@
                 .add_extrafly_div {
                     display: flex;
                     align-items: center;
-                    color: $darkYellow;
+                    color: $yellow3;
                     margin-top: 15px;
                     cursor: pointer;
+                    font-weight: bold !important;
+                    letter-spacing: 0.4px;
 
                     @media (max-width: 990px) {
                         margin-top: 4px;
@@ -285,9 +271,11 @@
                         margin-right: 5px;
                         font-weight: bold;
                         font-size: 15px;
-                    }
 
-                    .add_extrafly_div_text {}
+                        img {
+                            filter: invert(38%) sepia(91%) saturate(4757%) hue-rotate(29deg) brightness(100%) contrast(101%);
+                        }
+                    }
                 }
             }
         }
@@ -327,11 +315,6 @@
             }
 
             .time {
-                // position: relative;
-                // border: 1px solid red;
-                // max-width: 148px;
-                // width: 100%;
-                // padding: 0px 15px;
                 max-width: 137px;
                 width: 100%;
                 padding: 0px 9px;
@@ -348,6 +331,7 @@
 
                 .time_title {
                     margin-bottom: 5px;
+                    user-select: none;
 
                     @media (max-width: 990px) {
                         display: none;
@@ -357,7 +341,6 @@
 
                 @media (max-width:1200px) {
                     max-width: 113.72px;
-
                 }
 
                 @media (max-width: 990px) {
@@ -397,7 +380,10 @@
                 .quot_btn {
                     display: flex;
                     align-items: center;
-                    justify-content: center
+                    justify-content: center;
+                    font-weight: bold;
+                    background-color: $yellow3;
+                    height: 40px;
                 }
 
                 .resetForm {
@@ -418,8 +404,14 @@
                     i {
                         margin-right: 5px;
 
+                        span {
+                            overflow: visible;
+                        }
 
-
+                        img {
+                            margin-top: 3px !important;
+                            filter: invert(41%) sepia(95%) saturate(662%) hue-rotate(355deg) brightness(91%) contrast(92%);
+                        }
                     }
                 }
             }
@@ -428,9 +420,5 @@
         }
     }
 
-  
-}
 
-.minute {
-    // background-color: red;
 }

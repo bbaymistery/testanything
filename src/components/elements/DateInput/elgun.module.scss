@@ -8,7 +8,7 @@
              transform: translateY(-50%);
              z-index: 99;
              font-size: 12px;
-             top: 45px;
+             top: 49px;
              right: 8px;
 
              &::after {
@@ -32,35 +32,28 @@
          }
 
          .input_div {
-             //  margin-top: 8px;
              display: flex;
              justify-content: flex-start;
              position: relative;
              border: 1px solid #ccc;
-             //  padding: 10px 20px 12px 25px;
              align-items: center;
              padding: 0px 5px;
+             height: 40px;
 
              input[type="date"] {
                  position: absolute;
-                 min-width: 100%;
-                 display: block;
-                 text-align: left;
-                 /* Solution 1 */
                  -webkit-appearance: textfield;
                  min-width: 100%;
                  -moz-appearance: textfield;
                  background-color: rgb(255, 255, 255);
                  height: 32px;
                  line-height: 26px;
-                 //  padding: 10px 20px 12px 25px;
                  font-size: 14px;
                  color: #1f1f1f;
                  border: 1px solid transparent;
                  transition: all 0.3s;
                  box-shadow: none;
                  width: 100%;
-                 user-select: none;
                  outline: none;
                  cursor: pointer;
                  position: relative;
@@ -69,42 +62,8 @@
                  display: flex;
                  justify-content: flex-start;
 
-                 @media (max-width:1200px) {
-                     //  padding: 10px 10px 12px 25px;
-
-                 }
-
-                 //  &:focus {
-                 //      border: 1px solid #ed8323 !important;
-                 //      outline: none;
-
-                 //  }
-
-                 //  @media (max-width: 990px) {
-                 //      width: 100%;
-
-                 //  }
              }
 
-
-             // background-color: red;
-             input[type="date"]:after {
-                 //  font-family: "Font Awesome 5 Free";
-                 //  font-weight: 900;
-                 //  content: "\f073";
-                 //  //  padding: 0 5px;
-                 //  left: 16px;
-                 //  position: absolute;
-                 //  top: 4px;
-                 //  font-size: 14px;
-                 //  user-select: none;
-                 //  color: #5d646d;
-             }
-
-             /* change color of symbol on hover */
-             input[type="date"]:hover:after {
-                 //  color: #bf1400;
-             }
 
              /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
              input[type="date"]::-webkit-calendar-picker-indicator {
@@ -155,11 +114,9 @@
              input[type="date"]::-webkit-datetime-edit-month-field {
                  position: absolute !important;
                  border-left: 1px solid #8c8c8c2f;
-
                  padding: 2px 7px;
                  color: rgb(0, 0, 0);
                  left: 26px;
-                 //  transform: rotate(45deg);
              }
 
 
@@ -176,14 +133,9 @@
              input::-webkit-datetime-edit-month-field:focus,
              input::-webkit-datetime-edit-year-field:focus {
                  background-color: transparent;
-                 // background-color: blue ;
                  color: rgb(73, 73, 73);
                  outline: none;
              }
-
-
-
-
 
              .errorDate {
                  border: 1px solid red;

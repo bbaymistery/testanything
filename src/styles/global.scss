@@ -1,10 +1,8 @@
 @import './breakpoint';
 ///scsssss
-@import 'fonts';
 @import 'typography';
 @import 'components';
 @import 'animations';
-@import 'utils';
 @import 'layouts';
 @import 'notifications';
 
@@ -23,7 +21,8 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: $roboto;
+    font-family: Roboto,
+        sans-serif;
     --window-margin: 100px;
     color: $black3;
     font-family: 'Open Sans',
@@ -75,12 +74,57 @@ body {
     margin: 60px 0;
 }
 
+.ul_disc {
+    list-style: disc !important;
+
+}
+
 .gap {
     display: block;
     position: relative;
     margin: 30px 0;
 }
 
+.pb_0 {
+    padding-bottom: 0px !important;
+}
+
+.pt_0 {
+    padding-top: 0px !important;
+
+}
+
+.box_shadow_none {
+    box-shadow: none !important;
+}
+
+.mb_0 {
+    margin-bottom: 0px !important;
+}
+
+.py_1 {
+    padding: 1rem 0 !important;
+}
+
+.ml_3 {
+    margin-left: 2rem !important;
+}
+
+.mt_2 {
+    margin-top: 1.5rem !important;
+}
+
+.mt_4 {
+    margin-top: 3rem !important;
+}
+
+.mt_5 {
+    margin-top: 4rem !important;
+}
+
+.mb_2 {
+    margin-bottom: 1.5rem !important;
+}
 
 //bunu sadece footerde istifade eledik ama bunnan sonraki projeler icin bele istifade etmiyeceyik \
 .element_section {
@@ -101,21 +145,23 @@ body {
     }
 }
 
-.error-waiting-pickup-time{
-        position: absolute;
-            right: 0px;
-            top: -25px;
-            font-size: 12px;
-            color: red;
-            font-weight: 600;
-            @media (max-width: 450px) {
-                 display: none;
-                }
+.error-waiting-pickup-time {
+    position: absolute;
+    right: 0px;
+    top: -25px;
+    font-size: 12px;
+    color: red;
+    font-weight: 600;
+
+    @media (max-width: 450px) {
+        display: none;
+    }
 }
 
-.error-border-select{
+.error-border-select {
     border-color: red;
 }
-.manage-booking-a{
+
+.manage-booking-a {
     width: 174px;
 }

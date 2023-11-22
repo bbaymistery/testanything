@@ -10,7 +10,6 @@
 
         .input_div {
             user-select: none;
-            // border: 1px solid red;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -27,6 +26,10 @@
                     color: #008802;
                     ;
                     font-weight: bold;
+
+                    img {
+                        filter: invert(28%) sepia(96%) saturate(1304%) hue-rotate(94deg) brightness(97%) contrast(103%);
+                    }
                 }
             }
 
@@ -42,10 +45,9 @@
                     box-shadow: none;
                     position: relative;
                     padding: 0 9px 0 8px;
-                    // cursor:;
-                    color: #888;
+                    color: #2e2e2e;
                     width: 100%;
-                    height: 32px;
+                    height: 40px;
                     overflow: hidden;
                     white-space: nowrap;
                     text-decoration: none;
@@ -64,17 +66,8 @@
 
                     .left_icon {
                         margin-right: 6px;
-                        // flex: 0.3;
-                        // color: $greenDark;
                         width: 12px !important;
-                        // transform: rotate(30deg);
-                        // filter: gray;
-                        // /* IE6-9 */
-                        // -webkit-filter: grayscale(1);
-                        // /* Google Chrome, Safari 6+ & Opera 15+ */
-                        // filter: grayscale(1);
 
-                        /* Microsoft Edge and Firefox 35+ */
                         @media (max-width:990px) {
                             flex: 0;
                             font-size: 10px;
@@ -82,15 +75,11 @@
                         }
                     }
 
-                    .angleup_icon {
+                    i {
                         flex: 1 1;
                         display: flex;
                         justify-content: flex-end;
                         font-size: 11px;
-
-
-
-
                     }
 
                     p {
@@ -98,6 +87,7 @@
                         text-overflow: ellipsis;
                         overflow: hidden;
                         white-space: nowrap;
+                        font-size: 14px;
                     }
 
                 }
@@ -109,11 +99,18 @@
                     width: 30px;
                     cursor: pointer;
 
+                    img {
+                        filter: invert(38%) sepia(72%) saturate(755%) hue-rotate(354deg) brightness(102%) contrast(103%);
+                    }
+
                     // z-index: 999;
                     &:hover {
-                        transform: scale(0.99);
-                        color: red;
-                        transition: $transition;
+
+                        img {
+                            transition: $transition;
+                            transform: scale(0.99);
+                            filter: invert(17%) sepia(98%) saturate(7419%) hue-rotate(359deg) brightness(107%) contrast(113%);
+                        }
                     }
                 }
             }
@@ -124,6 +121,7 @@
 
         }
 
+        //s
         .result_box {
             position: relative;
 
@@ -158,7 +156,6 @@
                 color: wheat;
                 position: absolute;
                 top: 0px;
-                // width: 380px;
                 width: 466px;
                 padding: 4px;
                 z-index: 99999;
@@ -166,19 +163,16 @@
                 min-height: 60px;
                 border: 1px solid #b5b5b5;
                 max-height: 200px;
-                // overflow-y: scroll;
 
                 @media (max-width:990px) {
                     width: 100%;
                     top: -32px;
                     height: 75px;
-
                 }
 
                 &::-webkit-scrollbar {
                     width: 5px;
                     height: 8px;
-
                 }
 
                 &::-webkit-scrollbar-thumb {
@@ -189,7 +183,6 @@
                     display: flex;
                     align-items: center;
                     position: relative;
-
                     overflow: hidden;
 
                     input {
@@ -197,7 +190,7 @@
                         width: 100%;
                         border: 2px solid black;
                         color: black;
-                        padding: 2px 7px;
+                        padding: 6px 7px;
                         transition: $transition;
 
                         &:focus {
@@ -225,7 +218,6 @@
                     padding: 7px 0px;
 
                     @media (max-width:990px) {
-                        // height: 90px;
                         margin-top: 0.75rem;
                         font-size: 12px;
                         padding: 0px 0px;
@@ -236,7 +228,6 @@
 
 
         }
-
 
         &:hover {
             .tooltip_container {
@@ -258,7 +249,6 @@
             @media (max-width:990px) {
                 top: -59px;
                 left: 80px;
-
             }
 
             .tooltip {
@@ -305,10 +295,12 @@
     .add_extrafly_div {
         display: flex;
         align-items: center;
-        color: $darkYellow;
+        color: $yellow3;
         margin-top: 15px;
         cursor: pointer;
         user-select: none;
+        font-weight: bold !important;
+        letter-spacing: 0.4px;
 
         @media (max-width: 990px) {
             margin-top: 4px;
@@ -325,9 +317,13 @@
             margin-right: 5px;
             font-weight: bold;
             font-size: 15px;
+
+            img {
+                filter: invert(38%) sepia(91%) saturate(4757%) hue-rotate(29deg) brightness(100%) contrast(101%);
+            }
         }
 
-        .add_extrafly_div_text {}
+
     }
 }
 

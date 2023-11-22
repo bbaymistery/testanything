@@ -2,7 +2,6 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    // z-index: 99999;
 
     .alert_div {
         position: fixed;
@@ -55,9 +54,7 @@
                     border-bottom-left-radius: 30px;
                     border-top-right-radius: 30px;
                     transition: 0.4s linear;
-
                 }
-
             }
 
             .progress_moved {
@@ -78,7 +75,6 @@
         background-color: #ff0202 !important;
     }
 
-
     .showAlert {
         animation: alertt;
         opacity: 1;
@@ -87,8 +83,6 @@
         animation-iteration-count: 1;
         animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     }
-
-
 }
 
 
