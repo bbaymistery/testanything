@@ -128,7 +128,7 @@ const DropOffOneWayInput = ({ dropInputsOffValue, setDropInputsOffValue, setInte
   let { width } = size
   const closeModal = (params = {}) => {
     if (width < 990) {
-
+      document.body.style.overflow = "unset";
       let { index, destination } = params
       let inputField = document.getElementById("input_focused")
       inputField.style.opacity = 1
@@ -150,6 +150,8 @@ const DropOffOneWayInput = ({ dropInputsOffValue, setDropInputsOffValue, setInte
       const container = document?.querySelector("#content");
 
       e.target.style.opacity = 1
+      document.body.style.overflow = "hidden";
+
       setTimeout(() => {
         window.scroll({
           top: container,
