@@ -137,24 +137,24 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
   const setFocusToInput = (params = {}) => {
     //burda direk inputun ozune focu etmedigimiz ucun churchildekinnen fergli olur
     if (width < 990) {
-
-      let navbarElement = document.querySelector("#navbar_container")
-      navbarElement.style.display = "none"
       let { e, destination, index } = params
 
-      console.log(e.target);
       e.target.style.opacity = 0
+      let navbarElement = document.querySelector("#navbar_container")
+      navbarElement.style.display = "none"
       setInternalState({ [`${destination}-search-focus-${index}`]: window.innerWidth > 990 ? false : true })
-      const container = document?.querySelector("#content");
+      const container = document?.getElementById(`${destination}-search-focus-${index}`);
+      console.log(container);
+      console.log(`${destination}-search-focus-${index}`);
 
       e.target.style.opacity = 1
       setTimeout(() => {
         window.scroll({
-          top: 0,
+          top: container,
           left: 0,
           behavior: "smooth",
         });
-      }, 10);
+      }, 100);
 
 
     }
@@ -240,7 +240,7 @@ const PickUpOneWayInput = ({ pickInputsUpValue, setPickInputUpsValue, setInterna
 
             <div className={`${styles.result_box} `} >
               {showInputFieldPickUpIndex === index && (
-                <div className={`${styles['search-input-container']} ${styles.search_box}`} f={String(internalState[`pickup-search-focus-${index}`])} id="content">
+                <div className={`${styles['search-input-container']} ${styles.search_box}`} f={String(internalState[`pickup-search-focus-${index}`])} id={`pickup-search-focus-${index}`}>
                   <div className={styles.popup_header} f={String(internalState[`pickup-search-focus-${index}`])}>
                     <i className={`fa-solid fa-xmark ${styles.close_icon}`} onClick={(e) => closeModal({ index, destination: "pickup" })}></i>
                     <p>From ?</p>
