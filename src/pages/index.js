@@ -1,9 +1,9 @@
 import GlobalLayout from "../components/layouts/GlobalLayout";
 import Hero from "../components/widgets/Hero";
-import SeaportTransfers from "../components/widgets/SeaportTransfers";
-import CarsSlider from "../components/widgets/CarsSlider";
-import Tours from "./tours";
-import Testimonials from "../components/widgets/Testimonials";
+// import SeaportTransfers from "../components/widgets/SeaportTransfers";
+// import CarsSlider from "../components/widgets/CarsSlider";
+// import Tours from "./tours";
+// import Testimonials from "../components/widgets/Testimonials";
 import dynamic from 'next/dynamic'
 const TaxiDeals = dynamic(
   () => import('../components/widgets/TaxiDeals'),
@@ -47,10 +47,10 @@ export default function Home(props) {
     <GlobalLayout footerbggray={true}>
       <Hero />
       <TaxiDeals />
-      <SeaportTransfers bggray={true} />
+      {/* <SeaportTransfers bggray={true} />
       <Tours insideGlobalLayout={false} />
       <CarsSlider bggray={true} />
-      <Testimonials bggray={false} />
+      <Testimonials bggray={false} /> */}
     </GlobalLayout>
   )
 }
