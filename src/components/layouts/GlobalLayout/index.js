@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head';
-import TopHeader from '../../widgets/TopHeader';
+// import TopHeader from '../../widgets/TopHeader';
 // import Footer from '../../widgets/Footer';
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router';
@@ -37,7 +37,7 @@ const GlobalLayout = (
 
       </Head>
       <Alert />
-      <TopHeader />
+      {/* <TopHeader /> */}
       <main>
         {children}
       </main>

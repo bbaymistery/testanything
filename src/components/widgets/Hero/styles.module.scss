@@ -27,10 +27,10 @@
     }
 
     .hero_section {
-        @media (max-width:768px) {
-            padding-bottom: 75px;
-            padding-top: 50px;
-        }
+        // @media (max-width:768px) {
+        //     padding-bottom: 75px;
+        //     padding-top: 50px;
+        // }
     }
 }
 
@@ -1031,9 +1031,9 @@
     }
 
     .advertisiment_images_section {
-        @media (max-width:768px) {
-            display: none;
-        }
+        // @media (max-width:768px) {
+        //     display: none;
+        // }
 
         .advertisiment_images_section_container {
             padding-right: 0px;
