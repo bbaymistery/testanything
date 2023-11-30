@@ -19,27 +19,6 @@ const WaveLoading = dynamic(() => import('../../elements/LoadingWave'))
 const Loading = dynamic(() => import('../../elements/Loading'))
 const Features = dynamic(() => import('../Features'))
 
-const collectPoints = (params = {}, callback = () => { }) => {
-
-    let { value = '', reducerSessionToken = "", language = "" } = params;
-    const url = `${env.apiDomain}/api/v1/suggestions`;
-    const method = "POST"
-    const headers = { "Content-Type": "application/json" }
-    const body = JSON.stringify({ value, "session-token": reducerSessionToken, language })
-    const config = { method, headers, body }
-
-    fetch(url, config)
-        .then((res) => res.json())
-        .then((res) => { callback(res) })
-        .catch((error) => {
-            let message = "APL   Hero component _collectPoints()  function catch blog "
-            window.handelErrorLogs(error, message, { config })
-        });
-}
-const collectPointsAsync = params => new Promise((resolve, reject) => collectPoints(params, log => resolve(log)))
-
-
-
 const pushToQuotationsResultPage = (params = {}) => {
     let { dispatch, router, log, journeyType, language } = params
     dispatch({ type: "GET_QUOTATION", data: { results: log, journeyType } })
@@ -85,6 +64,24 @@ const Hero = (props) => {
         "error-booking-message-1": ""
 
     })
+    const collectPoints = useCallback((params = {}, callback = () => { }) => {
+
+        let { value = '', reducerSessionToken = "", language = "" } = params;
+        const url = `${env.apiDomain}/api/v1/suggestions`;
+        const method = "POST"
+        const headers = { "Content-Type": "application/json" }
+        const body = JSON.stringify({ value, "session-token": reducerSessionToken, language })
+        const config = { method, headers, body }
+
+        fetch(url, config)
+            .then((res) => res.json())
+            .then((res) => { callback(res) })
+            .catch((error) => {
+                let message = "APL   Hero component _collectPoints()  function catch blog "
+                window.handelErrorLogs(error, message, { config })
+            });
+    }, [params]);
+    const collectPointsAsync = params => new Promise((resolve, reject) => collectPoints(params, log => resolve(log)))
 
     //getting quotations
     const collectQuotations = useCallback((params = {}, callback = () => { }) => {
@@ -189,10 +186,10 @@ const Hero = (props) => {
             setInternalState({ [`collecting-${destination}-points-${index}`]: [] })
         }
     }, [reservations, dispatch, setInternalState, ifHasUnwantedCharacters, collectPointsAsync, reducerSessionToken, language]);
-    const onChangeSetDateTimeHandler = (params = {}) => {
+    const onChangeSetDateTimeHandler = useCallback((params = {}) => {
         let { value, hourOrMinute, journeyType } = params
         dispatch({ type: 'SET_JOURNEY_DATETIME', data: { journeyType, hourOrMinute, value } })
-    }
+    }, [params, dispatch]);
     //when we click getQuotations there we check fields .If fields not empty then it will be triggering
     const readyToCollectQuotations = useCallback(async (params = {}) => {
         (async () => {
