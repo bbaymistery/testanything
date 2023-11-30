@@ -69,29 +69,7 @@
                             flex-direction: column-reverse;
                             align-items: baseline;
                         }
-
-                        .tripadvisor_container {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-
-                            @media (max-width:990px) {
-                                display: none;
-                            }
-
-                            .advisor_review:nth-child(1) {
-                                border-right: 1px solid transparent;
-                            }
-
-                            .advisor_review:nth-child(2) {
-                                img {
-                                    width: 60px;
-                                }
-                            }
-                        }
                     }
-
-
 
                     // radio button component
                     .radio_button_div {

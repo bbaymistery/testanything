@@ -9,8 +9,7 @@ import styles from "./styles.module.scss"
 import env from '../../../resources/env'
 import RadioButton from './RadioButton'
 import { useRouter } from 'next/router'
-import React, { useEffect, useRef, } from 'react'
-import useRipple from '../../../hooks/useRipple';
+import React, { useCallback, useEffect, } from 'react'
 import Image from 'next/image';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 import dynamic from 'next/dynamic'
@@ -23,8 +22,6 @@ const Features = dynamic(() => import('../Features'))
 const collectPoints = (params = {}, callback = () => { }) => {
 
     let { value = '', reducerSessionToken = "", language = "" } = params;
-
-
     const url = `${env.apiDomain}/api/v1/suggestions`;
     const method = "POST"
     const headers = { "Content-Type": "application/json" }
@@ -199,7 +196,7 @@ const Hero = (props) => {
 
     })
 
-    const onChangeHanler = (params = {}) => {
+    const onChangeHanler = useCallback((params = {}) => {
         let { index, value, destination } = params
         let { passengerDetails: { token: passengerDetailsToken } } = reservations[0]
 
@@ -235,18 +232,19 @@ const Hero = (props) => {
             //reset collecting points
             setInternalState({ [`collecting-${destination}-points-${index}`]: [] })
         }
-    }
+    }, [reservations, dispatch, setInternalState, ifHasUnwantedCharacters, collectPointsAsync, reducerSessionToken, language]);
     const onChangeSetDateTimeHandler = (params = {}) => {
         let { value, hourOrMinute, journeyType } = params
         dispatch({ type: 'SET_JOURNEY_DATETIME', data: { journeyType, hourOrMinute, value } })
     }
 
-    const getQuotations = (e) => {
+    const getQuotations = useCallback((e) => {
         let errorHolder = reservationSchemeValidator({ reservations, appData });
-        setInternalState({ errorHolder })
-        if (errorHolder.status === 200) readyToCollectQuotations({ dispatch, setInternalState, router, journeyType, reservations, language })
-
-    }
+        setInternalState({ errorHolder });
+        if (errorHolder.status === 200) {
+            readyToCollectQuotations({ dispatch, setInternalState, router, journeyType, reservations, language });
+        }
+    }, [reservations, appData, setInternalState, readyToCollectQuotations, dispatch, router, journeyType, language]);
 
     const setFocusToInput = (params = {}) => {
         let { e, destination, index } = params
@@ -303,13 +301,8 @@ const Hero = (props) => {
         // bu rendere sebeb olur
         dispatch({ type: "CHECHK_FLIGHT_WAITING_TIME", data: { journeyType } })
     }, [])
-    const ref = useRef(null);
-    const ripples = useRipple(ref);
-
     let size = useWindowSize();
     let { width } = size
-
-
 
     return (
         <div className={`${styles.hero} ${direction} page`} islinknamecomponent={String(islinknamecomponent)}>
@@ -489,8 +482,8 @@ const Hero = (props) => {
                                                             <WaveLoading />
                                                         </div>
                                                         :
-                                                        <button ref={ref} onClick={(e) => getQuotations(e)} className={`btn btn_primary`}>
-                                                            {ripples}
+                                                        <button onClick={(e) => getQuotations(e)} className={`btn btn_primary`}>
+
                                                             <i className="fa-solid fa-magnifying-glass"></i>
                                                             <span>{appData?.words["seGetQuotation"]}</span>
                                                         </button>}
