@@ -34,7 +34,7 @@ class CustomDocument extends Document {
                 <Head >
                     {/* {this?.props.pageProps.pathname ? <link rel="stylesheet" href="/fontawesome/css/all.min.css" /> : <link rel="stylesheet" href="/fontawesomeHomePage/css/all.min.css" />} */}
                     {/* {this?.props.pageProps.pathname ? <></> : <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" />} */}
-                    <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+                    {/* <link rel="stylesheet" href="/fontawesome/css/all.min.css" /> */}
                     {schemaOfTaxiDeals?.length > 0 && schemaOfTaxiDeals?.map(((schema, index) => {
                         return <Script key={index} type="application/ld+json" strategy='beforeInteractive' >{JSON.stringify(schema, null, 2)}</Script>
                     }))}
