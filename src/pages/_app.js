@@ -8,12 +8,12 @@ import "../styles/global.scss";
 import { useRouter } from 'next/router';
 import { extractLanguage } from '../helpers/extractLanguage';
 import { checkLanguageAttributeOntheUrl } from '../helpers/checkLanguageAttributeOntheUrl';
-import { Jost } from '@next/font/google'
-const font = Jost({
-  weight: ['400', '500'],
-  subsets: ['latin'],
-  display: 'swap', // Add this line
-})
+// import { Jost } from '@next/font/google'
+// const font = Jost({
+//   weight: ['400', '500'],
+//   subsets: ['latin'],
+//   display: 'swap', // Add this line
+// })
 export const MyApp = ({ Component, pageProps }) => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -115,9 +115,9 @@ export const MyApp = ({ Component, pageProps }) => {
 
 
   return (<Provider store={store}>
-    <main className={`${router.pathname === '/' ? font.className : ""}`}>
-      <Component {...pageProps} />
-    </main>
+    {/* <main className={`${router.pathname === '/' ? font.className : ""}`}> */}
+    <Component {...pageProps} />
+    {/* </main> */}
   </Provider>);
 }
 const makestore = () => store;
