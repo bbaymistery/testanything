@@ -2,7 +2,6 @@
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     src: url(../webfonts/fa-solid-900.ttf) format("truetype");
-    font-display: swap;
 }
 
 .fa,
