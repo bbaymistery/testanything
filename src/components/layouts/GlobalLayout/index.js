@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head';
 import TopHeader from '../../widgets/TopHeader';
-import Footer from '../../widgets/Footer';
+// import Footer from '../../widgets/Footer';
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router';
 const Alert = dynamic(() => import('../../elements/alert/Alert'));
@@ -41,7 +41,7 @@ const GlobalLayout = (
       <main>
         {children}
       </main>
-      <Footer bggray={footerbggray} />
+      {/* <Footer bggray={footerbggray} /> */}
     </>
   )
 }
