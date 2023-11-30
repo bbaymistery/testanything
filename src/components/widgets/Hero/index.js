@@ -37,123 +37,13 @@ const collectPoints = (params = {}, callback = () => { }) => {
         });
 }
 const collectPointsAsync = params => new Promise((resolve, reject) => collectPoints(params, log => resolve(log)))
-//when we click getQuotations there we check fields .If fields not empty then it will be triggering
-const readyToCollectQuotations = (params = {}) => {
-    (async () => {
-        let { dispatch, setInternalState, router, journeyType, reservations, language, } = params
-
-        setInternalState({ ["quotation-loading"]: true })
-        let log = await collectQuotationsAsync({ reservations, journeyType })
 
 
-        //if our journey both way
-        if (parseInt(journeyType) === 1) {
-            let { status: status1 } = log[0]
-            let { status: status2 } = log[1]
-            if (status1 !== 200 && log[0]?.error?.global[0]) {
-                setInternalState({ ["error-booking-message-0"]: log[0]?.error?.global[0] })
-                setTimeout(() => {
-                    setInternalState({ [`error-booking-message-0`]: "" })
-                }, 2500);
-            }
-            if (status2 !== 200 && log[1]?.error?.global[0]) {
-                setInternalState({ ["error-booking-message-1"]: log[1]?.error?.global[0] })
-                setTimeout(() => {
-                    setInternalState({ [`error-booking-message-1`]: "" })
-                }, 2500);
-            }
-            if (status1 === 200 && status2 === 200) {
-                pushToQuotationsResultPage({ dispatch, router, log, journeyType, language })
-                setInternalState({ ["error-booking-message-0"]: "" })
-                setInternalState({ ["error-booking-message-1"]: "" })
-            }
-
-        } else {
-            let { status } = log
-            if (status === 200) {
-                pushToQuotationsResultPage({ dispatch, router, log, journeyType, language })
-            } else {
-                setInternalState({ ["error-booking-message-0"]: log?.error?.global[0] })
-                setTimeout(() => {
-                    setInternalState({ [`error-booking-message-0`]: "" })
-                }, 2500);
-            }
-        }
-        setInternalState({ ["quotation-loading"]: false })
-    })()
-}
-
-//getting quotations
-const collectQuotations = (params = {}, callback = () => { }) => {
-
-    let { reservations, journeyType } = params
-
-    //transfer
-    let trSelectedPickPoints = reservations[0]?.selectedPickupPoints;
-    let trSelectedDroppPoints = reservations[0]?.selectedDropoffPoints;
-    let transferDAteTimeString = reservations[0]?.transferDetails?.transferDateTimeString;
-    //return
-    let returnPickPoints = reservations[1]?.selectedPickupPoints;
-    let returnDroppPoints = reservations[1]?.selectedDropoffPoints;
-    let returnDAteTimeString = reservations[1]?.transferDetails?.transferDateTimeString;
-
-    const url = `${env.apiDomain}/api/v1/quotation`;
-    const method = "POST"
-    const headers = { "Content-Type": "application/json" }
-
-    const configTransfer = {
-        method,
-        headers,
-        body: JSON.stringify({
-            selectedPickupPoints: trSelectedPickPoints,
-            selectedDropoffPoints: trSelectedDroppPoints,
-            transferDateTimeString: transferDAteTimeString,
-        }),
-    };
-
-
-    const configReturn = {
-        method,
-        headers,
-        body: JSON.stringify({
-            selectedPickupPoints: returnPickPoints,
-            selectedDropoffPoints: returnDroppPoints,
-            transferDateTimeString: returnDAteTimeString,
-        }),
-    };
-
-    //check if tru then get oneway guotations
-    if (parseInt(journeyType) === 0) {
-        fetch(url, configTransfer)
-            .then((res) => res.json())
-            .then((data) => {
-                callback(data, "data");
-
-            })
-            .catch((error) => {
-                let message = "APL  Hero component _collectQuotations()  function catch blog  parseInt(journeyType) === 0"
-                window.handelErrorLogs(error, message, { configTransfer })
-            });
-    } else {
-        Promise.all([fetch(url, configTransfer), fetch(url, configReturn)])
-            .then(function (responses) { return Promise.all(responses.map(function (response) { return response.json() })) })
-            .then(function (data) {
-                callback(data, "data");
-            })
-            .catch(function (error) {
-                let message = "APL  Hero component _collectQuotations()  function catch blog  else part of>> parseInt(journeyType) === 0"
-                window.handelErrorLogs(error, message, { configReturn })
-            });
-    }
-}
-const collectQuotationsAsync = params => new Promise((resolve, reject) => collectQuotations(params, log => resolve(log)))
 
 const pushToQuotationsResultPage = (params = {}) => {
     let { dispatch, router, log, journeyType, language } = params
     dispatch({ type: "GET_QUOTATION", data: { results: log, journeyType } })
     router.push(`${language === 'en' ? "/quotation-results" : `${language}/quotation-results`}`)
-
-
     // router.push("/quotation-results")
 }
 const Hero = (props) => {
@@ -196,6 +86,72 @@ const Hero = (props) => {
 
     })
 
+    //getting quotations
+    const collectQuotations = useCallback((params = {}, callback = () => { }) => {
+
+        let { reservations, journeyType } = params
+
+        //transfer
+        let trSelectedPickPoints = reservations[0]?.selectedPickupPoints;
+        let trSelectedDroppPoints = reservations[0]?.selectedDropoffPoints;
+        let transferDAteTimeString = reservations[0]?.transferDetails?.transferDateTimeString;
+        //return
+        let returnPickPoints = reservations[1]?.selectedPickupPoints;
+        let returnDroppPoints = reservations[1]?.selectedDropoffPoints;
+        let returnDAteTimeString = reservations[1]?.transferDetails?.transferDateTimeString;
+
+        const url = `${env.apiDomain}/api/v1/quotation`;
+        const method = "POST"
+        const headers = { "Content-Type": "application/json" }
+
+        const configTransfer = {
+            method,
+            headers,
+            body: JSON.stringify({
+                selectedPickupPoints: trSelectedPickPoints,
+                selectedDropoffPoints: trSelectedDroppPoints,
+                transferDateTimeString: transferDAteTimeString,
+            }),
+        };
+
+
+        const configReturn = {
+            method,
+            headers,
+            body: JSON.stringify({
+                selectedPickupPoints: returnPickPoints,
+                selectedDropoffPoints: returnDroppPoints,
+                transferDateTimeString: returnDAteTimeString,
+            }),
+        };
+
+        //check if tru then get oneway guotations
+        if (parseInt(journeyType) === 0) {
+            fetch(url, configTransfer)
+                .then((res) => res.json())
+                .then((data) => {
+                    callback(data, "data");
+
+                })
+                .catch((error) => {
+                    let message = "APL  Hero component _collectQuotations()  function catch blog  parseInt(journeyType) === 0"
+                    window.handelErrorLogs(error, message, { configTransfer })
+                });
+        } else {
+            Promise.all([fetch(url, configTransfer), fetch(url, configReturn)])
+                .then(function (responses) { return Promise.all(responses.map(function (response) { return response.json() })) })
+                .then(function (data) {
+                    callback(data, "data");
+                })
+                .catch(function (error) {
+                    let message = "APL  Hero component _collectQuotations()  function catch blog  else part of>> parseInt(journeyType) === 0"
+                    window.handelErrorLogs(error, message, { configReturn })
+                });
+        }
+    }, [reservations, journeyType]);
+    const collectQuotationsAsync = useCallback(params =>
+        new Promise((resolve, reject) => collectQuotations(params, log => resolve(log))),
+        [collectQuotations]);
     const onChangeHanler = useCallback((params = {}) => {
         let { index, value, destination } = params
         let { passengerDetails: { token: passengerDetailsToken } } = reservations[0]
@@ -237,7 +193,51 @@ const Hero = (props) => {
         let { value, hourOrMinute, journeyType } = params
         dispatch({ type: 'SET_JOURNEY_DATETIME', data: { journeyType, hourOrMinute, value } })
     }
+    //when we click getQuotations there we check fields .If fields not empty then it will be triggering
+    const readyToCollectQuotations = useCallback(async (params = {}) => {
+        (async () => {
+            let { dispatch, setInternalState, router, journeyType, reservations, language, } = params
 
+            setInternalState({ ["quotation-loading"]: true })
+            let log = await collectQuotationsAsync({ reservations, journeyType })
+
+
+            //if our journey both way
+            if (parseInt(journeyType) === 1) {
+                let { status: status1 } = log[0]
+                let { status: status2 } = log[1]
+                if (status1 !== 200 && log[0]?.error?.global[0]) {
+                    setInternalState({ ["error-booking-message-0"]: log[0]?.error?.global[0] })
+                    setTimeout(() => {
+                        setInternalState({ [`error-booking-message-0`]: "" })
+                    }, 2500);
+                }
+                if (status2 !== 200 && log[1]?.error?.global[0]) {
+                    setInternalState({ ["error-booking-message-1"]: log[1]?.error?.global[0] })
+                    setTimeout(() => {
+                        setInternalState({ [`error-booking-message-1`]: "" })
+                    }, 2500);
+                }
+                if (status1 === 200 && status2 === 200) {
+                    pushToQuotationsResultPage({ dispatch, router, log, journeyType, language })
+                    setInternalState({ ["error-booking-message-0"]: "" })
+                    setInternalState({ ["error-booking-message-1"]: "" })
+                }
+
+            } else {
+                let { status } = log
+                if (status === 200) {
+                    pushToQuotationsResultPage({ dispatch, router, log, journeyType, language })
+                } else {
+                    setInternalState({ ["error-booking-message-0"]: log?.error?.global[0] })
+                    setTimeout(() => {
+                        setInternalState({ [`error-booking-message-0`]: "" })
+                    }, 2500);
+                }
+            }
+            setInternalState({ ["quotation-loading"]: false })
+        })()
+    }, [collectQuotationsAsync, pushToQuotationsResultPage, setInternalState, params]);
     const getQuotations = useCallback((e) => {
         let errorHolder = reservationSchemeValidator({ reservations, appData });
         setInternalState({ errorHolder });
@@ -281,14 +281,12 @@ const Hero = (props) => {
         //it means if we have seggested points then it will work otherwise it is nt
         if (!Array.isArray(internalState[`collecting-${destination}-points-${index}`]))
             setInternalState({ [`collecting-${destination}-points-${index}`]: [], [`${destination}-search-focus-${index}`]: false })
-
     }
     const closeModal = (params = {}) => {
         let { index, destination } = params
         let inputField = document.getElementById(`${destination}_input_focused_${index}`)
         inputField.style.opacity = 1
         setInternalState({ [`${destination}-search-focus-${index}`]: false, [`${destination}-search-value-${index}`]: "", [`collecting-${destination}-points-${index}`]: [] })
-
     }
     //when we go quotation page then go back In that case we should check
     //if we have points or not.
