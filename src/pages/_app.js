@@ -8,12 +8,10 @@ import "../styles/global.scss";
 import { useRouter } from 'next/router';
 import { extractLanguage } from '../helpers/extractLanguage';
 import { checkLanguageAttributeOntheUrl } from '../helpers/checkLanguageAttributeOntheUrl';
-import { Jost } from '@next/font/google'
-const font = Jost({
-  weight: ['400', '500'],
-  subsets: ['latin'],
-  display: 'swap', // Add this line
-})
+
+import localFont from '@next/font/local';
+
+const myFont = localFont({ src: '../../public/googleFonts/92zatBhPNqw73oTd4g.woff2' })
 export const MyApp = ({ Component, pageProps }) => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -112,10 +110,11 @@ export const MyApp = ({ Component, pageProps }) => {
     setLanguage({ language: hasLanguage !== 'en' ? hasLanguage : langAtrribute, hydrate: false })
   }, [langAtrribute])
 
+  console.log(myFont.style.fontFamily);
 
 
   return (<Provider store={store}>
-    <main className={`${router.pathname === '/' ? font.className : ""}`}>
+    <main style={{ fontFamily: myFont.style.fontFamily }}>
       <Component {...pageProps} />
     </main>
   </Provider>);
