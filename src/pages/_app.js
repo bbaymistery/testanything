@@ -12,7 +12,7 @@ import { Jost } from '@next/font/google'
 const font = Jost({
   weight: ['400', '500'],
   subsets: ['latin'],
-  display: 'fallback', // Add this line
+  display: 'swap', // Add this line
 })
 export const MyApp = ({ Component, pageProps }) => {
   const router = useRouter()
