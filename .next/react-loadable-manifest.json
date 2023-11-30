@@ -1,0 +1,34 @@
+{
+  "..\\components\\elements\\DropOffOneWayInput\\index.js -> ../HandleSearchResults": {
+    "id": "..\\components\\elements\\DropOffOneWayInput\\index.js -> ../HandleSearchResults",
+    "files": []
+  },
+  "..\\components\\elements\\Hero\\index.js -> ../HeroCarIcon/HeroCarIcon": {
+    "id": "..\\components\\elements\\Hero\\index.js -> ../HeroCarIcon/HeroCarIcon",
+    "files": [
+      "static/chunks/src_components_elements_HeroCarIcon_HeroCarIcon_js.js"
+    ]
+  },
+  "..\\components\\elements\\Hero\\index.js -> ../Return": {
+    "id": "..\\components\\elements\\Hero\\index.js -> ../Return",
+    "files": [
+      "static/chunks/src_components_elements_Return_index_js.js"
+    ]
+  },
+  "..\\components\\elements\\PickUpOneWayInput\\ResultBox.js -> ../HandleSearchResults": {
+    "id": "..\\components\\elements\\PickUpOneWayInput\\ResultBox.js -> ../HandleSearchResults",
+    "files": []
+  },
+  "..\\components\\elements\\PickUpOneWayInput\\index.js -> ./ResultBox": {
+    "id": "..\\components\\elements\\PickUpOneWayInput\\index.js -> ./ResultBox",
+    "files": [
+      "static/chunks/src_components_elements_PickUpOneWayInput_ResultBox_js.js"
+    ]
+  },
+  "..\\components\\layouts\\Layout\\index.js -> ../../widgets/Footer/Footer": {
+    "id": "..\\components\\layouts\\Layout\\index.js -> ../../widgets/Footer/Footer",
+    "files": [
+      "static/chunks/src_components_widgets_Footer_Footer_js.js"
+    ]
+  }
+}
