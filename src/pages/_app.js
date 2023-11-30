@@ -9,9 +9,7 @@ import { useRouter } from 'next/router';
 import { extractLanguage } from '../helpers/extractLanguage';
 import { checkLanguageAttributeOntheUrl } from '../helpers/checkLanguageAttributeOntheUrl';
 
-import localFont from '@next/font/local';
 
-const myFont = localFont({ src: '../../public/googleFonts/92zatBhPNqw73oTd4g.woff2' })
 export const MyApp = ({ Component, pageProps }) => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -110,13 +108,10 @@ export const MyApp = ({ Component, pageProps }) => {
     setLanguage({ language: hasLanguage !== 'en' ? hasLanguage : langAtrribute, hydrate: false })
   }, [langAtrribute])
 
-  console.log(myFont.style.fontFamily);
 
 
   return (<Provider store={store}>
-    <main style={{ fontFamily: myFont.style.fontFamily }}>
-      <Component {...pageProps} />
-    </main>
+    <Component {...pageProps} />
   </Provider>);
 }
 const makestore = () => store;
