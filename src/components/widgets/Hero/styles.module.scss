@@ -5,11 +5,6 @@
     padding-bottom: 0px;
     padding-top: 0px;
 
-    // @media (max-width:768px) {
-    //     margin-top: 50px;
-
-    // }
-
     @media(max-width:700px) {
         padding-bottom: 30px;
     }
@@ -26,28 +21,17 @@
         padding-bottom: 0px;
     }
 
-    .hero_section {
-        // @media (max-width:768px) {
-        //     padding-bottom: 75px;
-        //     padding-top: 50px;
-        // }
-    }
 }
 
 .hero {
-    // background-image: url("/images/heroBg1.jpeg");
     background-position: center top;
     background-size: 100% auto;
     background-color: $light-2;
     width: 100%;
     position: relative;
 
-
-
     &_section {
         padding-top: 30px;
-
-
 
         &_container {
             .points_content {
@@ -93,14 +77,9 @@
 
                             @media (max-width:990px) {
                                 display: none;
-
                             }
 
-                            .advisor_review {}
-
                             .advisor_review:nth-child(1) {
-                                img {}
-
                                 border-right: 1px solid transparent;
                             }
 
@@ -165,14 +144,12 @@
                     .points {
                         margin-left: 6px;
                         margin-right: 6px;
-                        // display: grid;
                         display: flex;
                         flex-direction: reverse;
                         gap: 1rem;
 
                         @media (max-width:990px) {
-                            // gap: 0px;
-                            // grid-template-columns: 1fr;
+
                             flex-direction: column;
                         }
 
@@ -219,11 +196,6 @@
                         }
 
                         .fifth_column {
-                            // display: flex;
-                            // align-items: center;
-                            // justify-content: center;
-                            // position: relative !important;
-
                             div {
                                 margin-top: 15px;
                             }
@@ -452,10 +424,7 @@
                                 }
 
                                 input[f="false"] {
-                                    // border-bottom: 1px solid #efefef !important;
                                     padding: 1px 2px;
-
-
                                 }
 
 
@@ -527,7 +496,6 @@
                                 padding: 2px 7px;
                                 margin-bottom: .5rem;
                                 transition: .5s linear;
-                                // margin-top: -1r/ em;
 
                                 .add_point_icon {
                                     font-size: 13px;
@@ -555,12 +523,10 @@
                         }
 
                         .hide_mobile {
-                            // display: none;
                             opacity: 0 !important;
 
                             @media (max-width:990px) {
                                 opacity: 1 !important;
-
                                 display: none;
                             }
                         }
@@ -574,7 +540,6 @@
                                 width: 100%;
 
                                 @media(max-width:990px) {
-                                    // border-bottom: 1px solid #efefef;
                                     padding-right: 0px;
                                     padding-bottom: 4px;
                                     max-width: 100%;
@@ -639,7 +604,6 @@
                                     }
                                 }
 
-
                                 /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
                                 input[type="date"]::-webkit-calendar-picker-indicator {
                                     position: absolute;
@@ -658,7 +622,6 @@
                                 /* adjust increase/decrease button */
                                 input[type="date"]::-webkit-inner-spin-button {
                                     z-index: 1;
-
                                 }
 
                                 /* adjust clear button */
@@ -689,9 +652,6 @@
                                     padding: 0px 7px;
                                     color: rgba(#130b37, 1);
                                     left: 54px;
-
-
-
                                 }
 
                                 input[type="date"]::-webkit-datetime-edit-month-field {
@@ -760,12 +720,6 @@
 
                                     @media(max-width:1250px) {
                                         left: 80px;
-                                    }
-
-                                    @media(max-width:990px) {
-                                        // left: 89px;
-                                        // background-color: red;
-                                        // // right: 10px;
                                     }
                                 }
                             }
@@ -874,10 +828,6 @@
                         }
 
                         .btn_div {
-
-                            // display: flex;
-                            // align-items: fle;
-                            // justify-content: center;
                             margin-top: 17px;
 
                             button {
@@ -894,12 +844,10 @@
                                 min-width: 166px;
                                 width: 100%;
 
-                                // min-width: 166px;
                                 @media(max-width:1400px) {
                                     min-width: 144px;
                                 }
 
-                                // min-width: 166px;
                                 @media(max-width:990px) {
                                     max-width: 100%;
                                 }
@@ -919,8 +867,6 @@
                                 }
                             }
 
-
-
                             .waveloadingdiv {
                                 min-width: 166px;
                                 height: 50px;
@@ -932,7 +878,6 @@
                                     min-width: 144px;
                                 }
 
-                                // min-width: 166px;
                                 @media(max-width:990px) {
                                     min-width: 100%;
                                 }
@@ -951,78 +896,10 @@
                 }
 
             }
-
-            .linkname {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: -50px;
-
-                @media(max-width:768px) {
-                    // width: 104%;
-                    display: none;
-                    // transform: translateX(-20px);
-                }
-
-                .left_info {
-                    padding-top: 20px;
-
-                    .left_info_title {
-                        font-size: 24px;
-                        margin-bottom: 10px;
-                        font-weight: 500;
-                    }
-
-                }
-
-                .tripad {
-
-                    // background-color: blue;
-                    img {
-                        // transform: translateX(-20px);
-                        object-fit: contain;
-                        width: 285px;
-                        width: 240px;
-                        // background-color: red;
-                        height: 112px;
-
-                        @media(max-width:1500px) {
-                            // width: 104%;
-                            // transform: translateX(-20px);
-                        }
-
-                    }
-
-                }
-
-                .google_review {
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                    align-items: center;
-                    align-items: flex-end;
-
-                    // background-color: blue;
-                    img {
-                        width: 180px;
-                    }
-                }
-
-                .acceptedcards {
-                    // background-color: blue;
-
-                    img {
-                        // background: red;
-                        width: 100%;
-                        object-fit: contain;
-                        height: 112px;
-                    }
-                }
-            }
         }
     }
 
     .advertisiment_images_section_islinkname {
-
         .advertisiment_images_section_container {
             .advertisiment_images {
                 margin-top: 3rem;
@@ -1031,16 +908,10 @@
     }
 
     .advertisiment_images_section {
-        // @media (max-width:768px) {
-        //     display: none;
-        // }
-
         .advertisiment_images_section_container {
             padding-right: 0px;
             margin-top: -20px;
             padding-bottom: 30px;
-
-
 
             @media (max-width:653px) {
                 padding-bottom: 0px;
@@ -1078,8 +949,6 @@
                         @media (max-width:653px) {
                             margin-left: 20px;
                             margin-top: -30px;
-
-
                         }
                     }
 
@@ -1114,20 +983,14 @@
                             width: 275px;
                         }
 
-
                         img {
                             width: 100%;
                         }
-
-
                     }
                 }
-
             }
-
         }
     }
-
 }
 
 
