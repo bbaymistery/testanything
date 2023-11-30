@@ -115,7 +115,7 @@ export const MyApp = ({ Component, pageProps }) => {
 
 
   return (<Provider store={store}>
-    <main className={`${router.pathname === '/' ? font.className : ""}`}>
+    <main >
       <Component {...pageProps} />
     </main>
   </Provider>);
