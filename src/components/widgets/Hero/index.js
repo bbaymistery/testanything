@@ -7,7 +7,6 @@ import { currentDate } from '../../../helpers/getDates';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "./styles.module.scss"
 import env from '../../../resources/env'
-import RadioButton from './RadioButton'
 import { useRouter } from 'next/router'
 import React, { useCallback, useEffect, } from 'react'
 import Image from 'next/image';
@@ -18,6 +17,7 @@ const HandleSearchResults = dynamic(() => import('../../elements/HandleSearchRes
 const WaveLoading = dynamic(() => import('../../elements/LoadingWave'))
 const Loading = dynamic(() => import('../../elements/Loading'))
 const Features = dynamic(() => import('../Features'))
+const RadioButton = dynamic(() => import('./RadioButton'))
 
 const pushToQuotationsResultPage = (params = {}) => {
     let { dispatch, router, log, journeyType, language } = params
