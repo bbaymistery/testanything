@@ -5,6 +5,7 @@ import CarsSlider from "../components/widgets/CarsSlider";
 import Tours from "./tours";
 import Testimonials from "../components/widgets/Testimonials";
 import dynamic from 'next/dynamic'
+import { useState } from "react";
 const TaxiDeals = dynamic(
   () => import('../components/widgets/TaxiDeals'),
   { loading: () => <div>Loading...</div> } // Replace this with your custom loading component
