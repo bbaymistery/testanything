@@ -473,7 +473,7 @@ const Hero = (props) => {
                                             {index === 1 && reservations.length > 1 || index === 0 && reservations.length === 1 ?
                                                 <div className={`${styles.btn_div} ${styles.fifth_column}`}  >
                                                     {internalState[`quotation-loading`] ?
-                                                        <div className={`btn btn_primary  disabled_button ${styles.waveloadingdiv}`}>
+                                                        <div className={`btn btn_primary  disabled_button ${styles.waveloadingdiv}`} style={{ marginTop: '0px' }}>
                                                             <WaveLoading />
                                                         </div>
                                                         :
