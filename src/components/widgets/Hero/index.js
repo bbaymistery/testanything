@@ -7,6 +7,7 @@ import { currentDate } from '../../../helpers/getDates';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from "./styles.module.scss"
 import env from '../../../resources/env'
+import RadioButton from './RadioButton'
 import { useRouter } from 'next/router'
 import React, { useCallback, useEffect, } from 'react'
 import Image from 'next/image';
@@ -17,7 +18,6 @@ const HandleSearchResults = dynamic(() => import('../../elements/HandleSearchRes
 const WaveLoading = dynamic(() => import('../../elements/LoadingWave'))
 const Loading = dynamic(() => import('../../elements/Loading'))
 const Features = dynamic(() => import('../Features'))
-const RadioButton = dynamic(() => import('./RadioButton'))
 
 const pushToQuotationsResultPage = (params = {}) => {
     let { dispatch, router, log, journeyType, language } = params
@@ -473,7 +473,7 @@ const Hero = (props) => {
                                             {index === 1 && reservations.length > 1 || index === 0 && reservations.length === 1 ?
                                                 <div className={`${styles.btn_div} ${styles.fifth_column}`}  >
                                                     {internalState[`quotation-loading`] ?
-                                                        <div className={`btn btn_primary mt_0 disabled_button ${styles.waveloadingdiv}`}>
+                                                        <div className={`btn btn_primary  disabled_button ${styles.waveloadingdiv}`}>
                                                             <WaveLoading />
                                                         </div>
                                                         :
@@ -489,19 +489,21 @@ const Hero = (props) => {
                                             {reservations.length > 1 && index === 0 ?
                                                 <div className={`${styles.btn_div} ${styles.fifth_column} ${styles.hide_mobile} `}  >
                                                     {internalState[`quotation-loading`] ?
-                                                        <div className={`btn btn_primary mt_0 disabled_button ${styles.waveloadingdiv}`}>
+                                                        <div className={`btn btn_primary  disabled_button ${styles.waveloadingdiv}`}>
                                                         </div>
                                                         :
-                                                        <button ref={ref} className={`btn btn_primary`} onClick={(e) => getQuotations(e)}>
+                                                        <button className={`btn btn_primary`} onClick={(e) => getQuotations(e)}>
                                                         </button>}
                                                 </div>
                                                 : <React.Fragment></React.Fragment>}
                                         </div>
-                                        {internalState[`error-booking-message-${index}`] ?
-                                            <div className={styles.errorBookedMessage}>
-                                                <p>{internalState[`error-booking-message-${index}`]}</p>
-                                            </div>
-                                            : <></>}
+                                        {
+                                            internalState[`error-booking-message-${index}`] ?
+                                                <div className={styles.errorBookedMessage}>
+                                                    <p>{internalState[`error-booking-message-${index}`]}</p>
+                                                </div>
+                                                : <></>
+                                        }
                                     </div>
 
                                 )
@@ -542,7 +544,7 @@ const Hero = (props) => {
             </div>
 
 
-        </div>
+        </div >
     )
 }
 

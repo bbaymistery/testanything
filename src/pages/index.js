@@ -4,11 +4,11 @@ import Hero from "../components/widgets/Hero";
 // import CarsSlider from "../components/widgets/CarsSlider";
 // import Tours from "./tours";
 // import Testimonials from "../components/widgets/Testimonials";
-// import dynamic from 'next/dynamic'
-// const TaxiDeals = dynamic(
-//   () => import('../components/widgets/TaxiDeals'),
-//   { loading: () => <div>Loading...</div> } // Replace this with your custom loading component
-// );
+import dynamic from 'next/dynamic'
+const TaxiDeals = dynamic(
+  () => import('../components/widgets/TaxiDeals'),
+  { loading: () => <div>Loading...</div> } // Replace this with your custom loading component
+);
 export default function Home(props) {
   // const [countryCode, setCountryCode] = useState(null);
 
@@ -46,7 +46,7 @@ export default function Home(props) {
   return (
     <GlobalLayout footerbggray={true}>
       <Hero />
-      {/* <TaxiDeals /> */}
+      <TaxiDeals />
       {/* <SeaportTransfers bggray={true} /> */}
       {/*
       <Tours insideGlobalLayout={false} />

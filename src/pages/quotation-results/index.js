@@ -387,7 +387,7 @@ const QuotationResults = (props) => {
                   const [splitedDate] = splitDateTimeStringIntoDate(transferDateTimeString) || []
 
                   return (
-                    <div key={index} className={`${index === 0 ? "mb_1" : ""}`}>
+                    <div key={index} style={{ marginBottom: `${index === 0 ? "1rem" : "0"}` }}>
                       {index === 0 ? <h2 className={`${styles.title} ${direction}`}>{appData?.words["seGoingDetails"]}</h2> : <React.Fragment></React.Fragment>}
                       {index === 1 ? <h2 className={`${styles.title} ${direction}`}>{appData?.words["seReturnDetails"]}</h2> : <React.Fragment></React.Fragment>}
                       <div className={`${styles.main_container} ${direction} `}>
@@ -530,7 +530,7 @@ const QuotationResults = (props) => {
                                 <p>{internalState[`error-booking-message-${index}`]}</p>
                               </div>
                               : <></>}
-                            <button disabled={internalState[`quotation-loading`]} className={`btn btn_primary mt_1 ${styles.button}`} onClick={() => getQuotations()} >
+                            <button disabled={internalState[`quotation-loading`]} className={`btn btn_primary  ${styles.button}`} onClick={() => getQuotations()} style={{ marginTop: '1rem' }}>
                               <span>{internalState[`quotation-loading`] ? <WaveLoading /> : `${appData?.words["seUpdateQuotation"]}`}</span>
                             </button>
                           </div>
@@ -568,11 +568,11 @@ const QuotationResults = (props) => {
                 // for taxideals
                 reservations.map((obj, index) => {
                   return (
-                    <div key={index} className={`${index === 0 ? "mb_5" : ""}`}>
+                    <div key={index} style={{ marginBottom: `${index === 0 ? "4rem" : ""}` }}>
                       <div className={`${styles.main_container} ${direction} ${styles.main_container_taxideal}`}>
                         <div className={` ${isTaxiDeal ? styles.quotation_panel_istaxideal : ""}`}>
                           {taxidealMapStatus ?
-                            <div className={`${styles.modal_map} modal  `}>
+                            <div className={`${styles.modal_map} ${styles.modal}  `}>
                               <OutsideClickAlert onOutsideClick={() => setTaxidealMapStatus(false)}>
                                 <div className={styles.modal_map_container}>
                                   <div onClick={() => setTaxidealMapStatus(false)} className={styles.close_div}>

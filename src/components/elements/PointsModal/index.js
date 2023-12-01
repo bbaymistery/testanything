@@ -57,7 +57,7 @@ const PointsModal = ({ points, title }) => {
                 <ul>
                     {points?.map((point, index) => {
                         return <a href={point.pathname} key={index}>
-                            <li className='li_item'>
+                            <li className='li_item' >
                                 <span className={styles.title}>{point?.translatedPageTitle ? point?.translatedPageTitle : point?.title}</span>
                                 <span className={styles.start_from}>{appData.words["strStartFrom"]} <span className={styles.price}>{point.price}</span>  </span>
                             </li>
