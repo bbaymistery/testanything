@@ -17,7 +17,7 @@ class CustomDocument extends Document {
         ctx.renderPage = () =>
             originalRenderPage({
                 enhanceApp: (App) => (props) => {
-                    pageProps.pathname = props.router.pathname
+
                     return <App {...props} />
                 },
                 enhanceComponent: (Component) => Component,
@@ -29,10 +29,11 @@ class CustomDocument extends Document {
     render() {
         //here i am destructing props which i passed  with MyApp.getInitialProps
         let { schemaOfTaxiDeals } = this?.props?.__NEXT_DATA__?.props?.pageProps//this comes from.[...pathname]
+
         return (
             <Html lang="en">
                 <Head >
-                    {this?.props.pageProps.pathname === "/" ? <link rel="stylesheet" href="/fontawesome/css/all.min.css" /> : <link rel="stylesheet" href="/fontawesomeHomePage/css/all.min.css" />}
+
                     {/* {this?.props.pageProps.pathname ? <></> : <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" />} */}
                     {schemaOfTaxiDeals?.length > 0 && schemaOfTaxiDeals?.map(((schema, index) => {
                         return <Script key={index} type="application/ld+json" strategy='beforeInteractive' >{JSON.stringify(schema, null, 2)}</Script>
