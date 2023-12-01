@@ -1,6 +1,5 @@
 import GlobalLayout from "../components/layouts/GlobalLayout";
 import Hero from "../components/widgets/Hero";
-import Testimonials from "../components/widgets/Testimonials";
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from "react";
 const TaxiDeals = dynamic(() => import('../components/widgets/TaxiDeals'), { loading: () => <div>Loading...</div> });
