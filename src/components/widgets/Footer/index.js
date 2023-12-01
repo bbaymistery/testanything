@@ -38,7 +38,7 @@ const Footer = (props) => {
 
 
             <div className={styles.column}>
-              <h3>Company</h3>
+              <p className={styles.title}>Company</p>
               <ul className={styles.list_items}>
                 <li>
                   <a href={`${language === 'en' ? `/drivers-wanted` : `${language}/drivers-wanted`}`} title='Drivers' >
@@ -84,7 +84,7 @@ const Footer = (props) => {
 
             </div>
             <div className={styles.column}>
-              <h3>Cruise Ports</h3>
+              <p className={styles.title}>Cruise Ports</p>
               <ul className={styles.list_items}>
 
                 {CruisePorts.map((airport, index) => {
@@ -104,7 +104,7 @@ const Footer = (props) => {
 
             </div>
             <div className={styles.column}>
-              <h3>Airports</h3>
+              <p className={styles.title}>Airports</p>
               <ul className={styles.list_items}>
                 {Airports.map((airport, index) => {
                   let { path: listPath, innerText: listInnerText, title: listTitle, hasTaxiDeals } = airport
@@ -123,7 +123,7 @@ const Footer = (props) => {
 
             </div>
             <div className={`${styles.column} ${styles.last_column}`}>
-              <h3>Contact Us</h3>
+              <p className={styles.title}>Contact Us</p>
 
               <div className={styles.description}>
                 <p>Toll Free Customer Care</p>
