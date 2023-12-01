@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import logoImage from '../../../../public/logos/blueLogoAirPort.png'
 import fbImage from '../../../../public/social/fb.gif';
 import twImage from '../../../../public/social/tw.gif';
-import blogImage from '../../../../public/social/Blog.png';
 import srImage from '../../../../public/social/rss.png';
 import instaIamge from '../../../../public/social/Instigram.gif';
 import styles from "./styles.module.scss"

@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import env from '../../../resources/env'
-import PointsModal from '../../elements/PointsModal'
 import styles from "./styles.module.scss"
 import TaxiDealViewContent from './TaxiDealViewContent'
 import useRipple from '../../../hooks/useRipple'
 import { useRef } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic'
+const PointsModal = dynamic(() => import('../../elements/PointsModal'));
 const tabsBttons = [
     {
         name: "Heathrow Taxi Deals",
