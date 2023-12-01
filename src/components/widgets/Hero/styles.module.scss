@@ -5,6 +5,11 @@
     padding-bottom: 0px;
     padding-top: 0px;
 
+    @media(max-width:1280px) {
+        margin-top: 25px;
+        padding-top: 45px;
+    }
+
     @media(max-width:700px) {
         padding-bottom: 30px;
     }
@@ -13,7 +18,7 @@
 .hero[islinknamecomponent="false"] {
     padding-bottom: 0px;
 
-    @media(max-width:1200px) {
+    @media(max-width:1280px) {
         margin-top: 25px;
     }
 
@@ -269,7 +274,7 @@
                                 //[popupp="true"][direction="false"]
                                 //[popupp="true"][direction="true"]
                                 .input_delete_field_icon[popupp="false"][direction="false"] {
-                                    top: 7px;
+                                    top: 0px;
                                     font-size: 13px;
                                     color: red;
                                     right: 10px;
@@ -290,7 +295,7 @@
                                     right: 5px;
                                     font-size: 12px;
                                     transform: rotate(180deg);
-                                    top: 9px;
+                                    top: 0px;
                                     cursor: pointer;
                                     width: 10px;
                                 }
@@ -301,7 +306,7 @@
                                     color: red;
                                     font-size: 12px;
                                     transform: rotate(180deg);
-                                    top: 88px !important;
+                                    top: 82px !important;
                                     cursor: pointer;
                                 }
 
@@ -310,7 +315,7 @@
                                     right: 23px !important;
                                     color: red;
                                     font-size: 12px;
-                                    top: 88px;
+                                    top: 82px;
                                     cursor: pointer;
                                 }
 
