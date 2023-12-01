@@ -1,15 +1,13 @@
 import GlobalLayout from "../components/layouts/GlobalLayout";
 import Hero from "../components/widgets/Hero";
-import SeaportTransfers from "../components/widgets/SeaportTransfers";
-import CarsSlider from "../components/widgets/CarsSlider";
-import Tours from "./tours";
 import Testimonials from "../components/widgets/Testimonials";
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from "react";
-const TaxiDeals = dynamic(
-  () => import('../components/widgets/TaxiDeals'),
-  { loading: () => <div>Loading...</div> } // Replace this with your custom loading component
-);
+const TaxiDeals = dynamic(() => import('../components/widgets/TaxiDeals'), { loading: () => <div>Loading...</div> });
+const CarsSlider = dynamic(() => import('../components/widgets/CarsSlider'),);
+const SeaportTransfers = dynamic(() => import('../components/widgets/SeaportTransfers'),);
+const Tours = dynamic(() => import('./tours'),);
+
 export default function Home(props) {
   const [hasScrolled, setHasScrolled] = useState(false);
   const handleScroll = () => {
@@ -27,9 +25,7 @@ export default function Home(props) {
     <GlobalLayout footerbggray={true}>
       <Hero />
       <TaxiDeals />
-
       {hasScrolled && <SeaportTransfers bggray={true} />}
-
       {hasScrolled && <Tours insideGlobalLayout={false} />}
       {hasScrolled && <CarsSlider bggray={true} />}
       <Testimonials bggray={false} />

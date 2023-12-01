@@ -124,7 +124,7 @@
                                 h4 {
                                     font-weight: 500;
                                     line-height: 1.6;
-                                    font-family: $font-jost;
+                                    // font-family: $font-jost;
                                     text-transform: none;
                                     color: lighten($dark-1, 5%);
                                     color: $light-1;
@@ -138,7 +138,7 @@
                                     color: $light-1;
                                     line-height: 1.6;
                                     font-size: 15px;
-                                    font-family: $font-jost;
+                                    // font-family: $font-jost;
                                     position: relative;
 
                                     .loading_div[direction="false"] {
@@ -225,7 +225,7 @@
                                         color: $dark-1;
                                         outline-offset: -2px;
                                         font-weight: 500;
-                                        font-family: $font-jost;
+                                        // font-family: $font-jost;
                                         position: relative;
                                         font-size: 14px;
                                         text-transform: capitalize !important;
@@ -436,7 +436,7 @@
                                         }
 
                                         font-weight: 500;
-                                        font-family: $font-jost;
+                                        // font-family: $font-jost;
                                         font-size: 15px;
 
                                         &:before {
@@ -661,7 +661,7 @@
                                         color: $light-1;
                                         font-weight: 500;
                                         line-height: 1.6;
-                                        font-family: $font-jost;
+                                        // font-family: $font-jost;
                                         margin-bottom: 5px;
                                         font-size: 15px;
                                     }
@@ -675,7 +675,7 @@
                                         color: darken($dark-1, 5%);
                                         margin: 0;
                                         font-weight: 500;
-                                        font-family: $font-jost;
+                                        // font-family: $font-jost;
                                         border-bottom: 1px solid #efefef;
                                         // -webkit-appearance: none;
                                         font-size: 14px;
@@ -925,7 +925,7 @@
                                         position: absolute;
                                         user-select: none;
                                         cursor: pointer;
-                                        font-family: $font-jost;
+                                        // font-family: $font-jost;
                                         opacity: 0;
 
                                         // Text
@@ -1207,7 +1207,7 @@
                                     margin-left: 6px;
                                     color: rgb(115, 115, 115);
                                     font-size: 20px;
-                                    font-family: $font-jost;
+                                    // font-family: $font-jost;
                                     text-transform: capitalize;
                                 }
                             }

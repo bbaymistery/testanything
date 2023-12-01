@@ -83,7 +83,7 @@
                             margin-left: 6px;
                             color: rgb(115, 115, 115);
                             font-size: 20px;
-                            font-family: $font-jost;
+                            // font-family: $font-jost;
                             text-transform: capitalize;
                         }
                     }
@@ -94,7 +94,7 @@
                         width: 100%;
                         font-size: 24px;
                         text-transform: capitalize;
-                        font-family: $font-jost;
+                        // font-family: $font-jost;
 
                         @media(max-width:990px) {
                             margin: 24px 0px 24px 4px !important;
@@ -108,7 +108,7 @@
                         width: 100%;
                         font-size: 24px;
                         text-transform: capitalize;
-                        font-family: $font-jost;
+                        // font-family: $font-jost;
                     }
 
                     .points[direction="true"] {
@@ -229,7 +229,6 @@
 
                                 padding-right: 8px;
                                 position: relative;
-                                // padding: 6px 0px;
 
                                 @media(max-width:990px) {
                                     padding-right: 0px;
@@ -259,7 +258,7 @@
 
                                     p {
                                         font-size: 19px;
-                                        font-family: $font-jost;
+                                        // font-family: $font-jost;
                                         font-weight: 500;
                                         color: #000;
                                     }
@@ -391,7 +390,7 @@
                                         text-transform: capitalize;
                                         color: #5d646d;
                                         font-weight: 300;
-                                        font-family: $font-jost;
+
                                     }
                                 }
 
@@ -546,7 +545,7 @@
                                     }
 
                                     font-weight: 500;
-                                    font-family: $font-jost;
+                                    // font-family: $font-jost;
                                     font-size: 15px;
 
                                     &:before {
@@ -704,7 +703,7 @@
 
                             .date_picker_icon {
 
-                                top: 54px;
+                                top: 63px;
                                 transform: translateY(-100%);
                                 right: 13px;
                                 font-size: 14px;
