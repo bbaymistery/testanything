@@ -1,14 +1,17 @@
 import GlobalLayout from "../components/layouts/GlobalLayout";
+import CarsSlider from "../components/widgets/CarsSlider";
 import Hero from "../components/widgets/Hero";
+import Testimonials from "../components/widgets/Testimonials";
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from "react";
+// import Tours from "./tours";
+import SeaportTransfers from '../components/widgets/SeaportTransfers'
 const TaxiDeals = dynamic(() => import('../components/widgets/TaxiDeals'), { loading: () => <div>Loading...</div> });
-const CarsSlider = dynamic(() => import('../components/widgets/CarsSlider'),);
-const SeaportTransfers = dynamic(() => import('../components/widgets/SeaportTransfers'),);
+// const CarsSlider = dynamic(() => import('../components/widgets/CarsSlider'),);
+// const SeaportTransfers = dynamic(() => import('../components/widgets/SeaportTransfers'),);
 const Tours = dynamic(() => import('./tours'),);
-const Testimonials = dynamic(() => import('../components/widgets/Testimonials'),);
 
-export default function Home() {
+export default function Home(props) {
   const [hasScrolled, setHasScrolled] = useState(false);
   const handleScroll = () => {
     if (!hasScrolled) {
@@ -25,11 +28,10 @@ export default function Home() {
     <GlobalLayout footerbggray={true}>
       <Hero />
       <TaxiDeals />
-      {hasScrolled && <SeaportTransfers bggray={true} />}
+      <SeaportTransfers bggray={true} />
       {hasScrolled && <Tours insideGlobalLayout={false} />}
-      {hasScrolled && <CarsSlider bggray={true} />}
-      {hasScrolled && <Testimonials bggray={false} />}
-
+      <CarsSlider bggray={true} />
+      <Testimonials bggray={false} />
     </GlobalLayout>
   )
 }
