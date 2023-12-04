@@ -18,8 +18,10 @@
     flex-direction: column;
     top: 44px;
     width: 405px;
+    opacity: 0;
+    animation: .2s appear forwards;
 
-
+    z-index: 9999;
 
     @media (max-width:768px) {
         overflow-x: hidden;
@@ -180,9 +182,9 @@
     }
 
     //no results
-    ul {
+    .no_results_ul {
 
-        .no_results {
+        li {
             display: flex;
             align-items: center;
             box-shadow: rgba(50, 50, 93, 0.1) 0px 50px 100px -20px, rgba(0, 0, 0, 0.1) 0px 30px 60px -30px, rgba(10, 37, 64, 0.2) 0px -2px 6px 0px inset;
@@ -208,6 +210,15 @@
 
 }
 
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 .istaxideal_search_results {
     max-width: 100%;
