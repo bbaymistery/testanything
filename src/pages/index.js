@@ -28,7 +28,8 @@ export default function Home(props) {
       {hasScrolled && <SeaportTransfers bggray={true} />}
       {hasScrolled && <Tours insideGlobalLayout={false} />}
       {hasScrolled && <CarsSlider bggray={true} />}
-      <Testimonials bggray={false} />
+      {hasScrolled && <Testimonials bggray={false} />}
+
     </GlobalLayout>
   )
 }
