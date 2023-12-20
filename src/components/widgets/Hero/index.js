@@ -146,9 +146,9 @@ const Hero = (props) => {
                 });
         }
     }, [reservations, journeyType]);
-    const collectQuotationsAsync = useCallback(params =>
-        new Promise((resolve, reject) => collectQuotations(params, log => resolve(log))),
-        [collectQuotations]);
+
+    const collectQuotationsAsync = useCallback(params => new Promise((resolve, reject) => collectQuotations(params, log => resolve(log))), [collectQuotations]);
+
     const onChangeHanler = useCallback((params = {}) => {
         let { index, value, destination } = params
         let { passengerDetails: { token: passengerDetailsToken } } = reservations[0]
@@ -186,6 +186,8 @@ const Hero = (props) => {
             setInternalState({ [`collecting-${destination}-points-${index}`]: [] })
         }
     }, [reservations, dispatch, setInternalState, ifHasUnwantedCharacters, collectPointsAsync, reducerSessionToken, language]);
+
+
     const onChangeSetDateTimeHandler = useCallback((params = {}) => {
         let { value, hourOrMinute, journeyType } = params
         dispatch({ type: 'SET_JOURNEY_DATETIME', data: { journeyType, hourOrMinute, value } })
@@ -235,6 +237,8 @@ const Hero = (props) => {
             setInternalState({ ["quotation-loading"]: false })
         })()
     }, [collectQuotationsAsync, pushToQuotationsResultPage, setInternalState, params]);
+
+
     const getQuotations = useCallback((e) => {
         let errorHolder = reservationSchemeValidator({ reservations, appData });
         setInternalState({ errorHolder });
@@ -279,6 +283,7 @@ const Hero = (props) => {
         if (!Array.isArray(internalState[`collecting-${destination}-points-${index}`]))
             setInternalState({ [`collecting-${destination}-points-${index}`]: [], [`${destination}-search-focus-${index}`]: false })
     }
+
     const closeModal = (params = {}) => {
         let { index, destination } = params
         let inputField = document.getElementById(`${destination}_input_focused_${index}`)
@@ -349,7 +354,7 @@ const Hero = (props) => {
                                                                 type="text"
                                                                 autoComplete="off"
                                                                 id={`pickup_input_focused_${index}`}//this is for scrolling top when ever we focus on mobile
-                                                                placeholder={"Add pick up point"}
+                                                                placeholder={appData?.words["seLocationPlaceholder"]}
                                                                 value={internalState[`pickup-search-value-${index}`]}
                                                                 autoFocus={internalState[`pickup-search-focus-${index}`]}
                                                                 f={String(internalState[`pickup-search-focus-${index}`])} //giving a style if we focused
@@ -405,7 +410,7 @@ const Hero = (props) => {
                                                                 type="text"
                                                                 autoComplete="off"
                                                                 id={`dropoff_input_focused_${index}`}//this is for scrolling top when ever we focus on mobile
-                                                                placeholder={"Add drop off point"}
+                                                                placeholder={appData?.words["seLocationPlaceholder"]}
                                                                 value={internalState[`dropoff-search-value-${index}`]}
                                                                 autoFocus={internalState[`dropoff-search-focus-${index}`]}
                                                                 f={String(internalState[`dropoff-search-focus-${index}`])} //giving a style if we focused

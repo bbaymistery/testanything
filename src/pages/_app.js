@@ -1,7 +1,7 @@
 import { mobileAndTabletCheck } from '../helpers/mobileAndTabletCheck';
 import { createWrapper } from "next-redux-wrapper";
 import { Provider, useDispatch, } from "react-redux";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import store from "../store/store";
 import env from '../resources/env';
 import "../styles/global.scss";
@@ -23,7 +23,7 @@ export const MyApp = ({ Component, pageProps }) => {
   let langAtrribute = "en"
   if (hasLanguageCode) langAtrribute = extractLanguage(router.asPath)//if it is tr then we assingg langAtribute to tr
 
-  const setLanguage = async (params = {}) => {
+  const setLanguage = useCallback(async (params = {}) => {
     let { language, hydrate = true } = params
     if (language) {
       let index
@@ -48,7 +48,7 @@ export const MyApp = ({ Component, pageProps }) => {
         dispatch({ type: "SET_NEW_APPDATA", data: appDatass, initialStateReducer: store.getState().initialReducer })
       }
     }
-  }
+  }, [dispatch, appData,])
   useEffect(() => {
     //global errors
     if (typeof window === 'object') {
@@ -95,11 +95,15 @@ export const MyApp = ({ Component, pageProps }) => {
       localStorage.removeItem("language"); // remove an item from local storage
       localStorage.removeItem("direction"); // remove an item from local storage
       localStorage.removeItem("path"); // remove an item from local storage
+      // Dynamically inject the termsReducer when this component mounts
+
     };
+
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
+
   }, [])
 
 
@@ -107,6 +111,8 @@ export const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     setLanguage({ language: hasLanguage !== 'en' ? hasLanguage : langAtrribute, hydrate: false })
   }, [langAtrribute])
+
+
 
   return (<Provider store={store}>
     <main style={{ fontFamily: myFont.style.fontFamily }}>
@@ -145,6 +151,7 @@ MyApp.getInitialProps = wrapper.getInitialAppProps((store) => async ({ Component
     // Dispatch values to Redux store
     store.dispatch({ type: "GET_APP_DATA", data: { appData: appDataInitial, paymentTypes: paymentTypesInitial, }, });
   }
+
   return { pageProps: { ...pageProps, appData: appDataInitial, hasLanguage: lang || "en", pathNamePage: ctx?.req?.url } }
 
 });
