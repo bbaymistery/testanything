@@ -26,7 +26,8 @@ const Layout = ({
         <link rel="icon" href="/favicon.ico" />
         <meta name="distribution" content="Global" />
         <meta name="rating" content="Safe For Kids" />
-        <meta name="robots" content="index,follow" />
+        {/* <meta name="robots" content="index,follow" /> */}
+        <meta name="robots" content="noindex,nofollow" />
         <meta httpEquiv="X-UA-Compatible" content="IE=8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=7" />
         <meta httpEquiv="X-UA-Compatible" content="IE=10" />
