@@ -31,6 +31,10 @@
     content: "\f4c6"
 }
 
+.fa-heart:before {
+    content: "\f004"
+}
+
 .fa-sterling-sign:before {
     content: "\f154"
 }

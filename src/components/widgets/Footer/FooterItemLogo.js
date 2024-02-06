@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import logoImage from '../../../../public/images/logo.png';
+import logoImage from '../../../../public/webpImages/logo.webp';
 import Image from 'next/image'
 const FooterItemLogo = () => {
   return (

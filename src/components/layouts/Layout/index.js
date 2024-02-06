@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "./styles.module.scss";
 import Header from "../../widgets/Header";
-// import Footer from "../../widgets/Footer";
+import Footer from "../../widgets/Footer";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 const Layout = ({
@@ -102,7 +102,7 @@ const Layout = ({
       </Head>
       <Header />
       <main>{children}</main>
-      {/* {!noFooter && <Footer />} */}
+      {!noFooter && <Footer />}
     </div>
   );
 };

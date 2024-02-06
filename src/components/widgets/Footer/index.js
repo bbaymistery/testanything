@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  companyLinksName,
-  row2TermsPrivacyHelp,
-  socialIconss,
-  socialLinks,
-} from "../../../constants/footer";
+import { companyLinksName, row2TermsPrivacyHelp, } from "../../../constants/footer";
 import FooterCopyRight from "./FooterCopyRight";
 import FooterItem from "./FooterItem";
 import FooterItemLogo from "./FooterItemLogo";
@@ -30,11 +25,6 @@ const Footer = () => {
                 {"Other Links"}
               </h3>
               <ul className={styles.list_items}>
-                {/* <li className={styles.item}>
-                  <a href="/about" className={styles.item_link}>
-                    About
-                  </a>
-                </li> */}
                 <li className={styles.item}>
                   <a href="/sitemap" className={styles.item_link}>
                     Site Map
@@ -54,11 +44,6 @@ const Footer = () => {
             <FooterItem linkNames={row2TermsPrivacyHelp} />
           </div>
 
-          {/* <div className={styles.col_4}>
-            <div className={styles.footer_item}>
-              <FooterItem withImage={true} linkNames={socialIconss} />
-            </div>
-          </div> */}
         </div>
       </div>
       <div className={styles.section_line}></div>

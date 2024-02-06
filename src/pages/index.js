@@ -65,20 +65,9 @@ export default function HomePage() {
         <SeaportTransfers />
         <TestimonialLabel />
         <TestimanialInfo />
-
       </div>
     </Layout>
   );
 }
-
-
-// export async function getServerSideProps(context) {
-//   let tags = ` <link rel="icon" href="/favicon.ico" />
-// `
-
-//   return {
-//     props: { tags }
-//   };
-// }
 
 
