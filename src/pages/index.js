@@ -6,7 +6,7 @@ import Features from "../components/widgets/Features";
 import CarsSlider from "../components/widgets/CarsSlider/FunctionComp";
 import SpecialPrices from "../components/widgets/SpecialPrices";
 import TestimonialLabel from "../components/widgets/TestimonialLabel";
-// import TestimanialInfo from "../components/widgets/TestimonialInfo";
+import TestimanialInfo from "../components/widgets/TestimonialInfo";
 import SeaportTransfers from "../components/widgets/SeaportTransfers";
 import { useDispatch } from "react-redux";
 import { GET_APP_DATA } from "../store/pickUpDropOffReducer/pickUpDropTypes";
@@ -64,7 +64,7 @@ export default function HomePage() {
         <HotelsAirports />
         <SeaportTransfers />
         <TestimonialLabel />
-        {/* <TestimanialInfo /> */}
+        <TestimanialInfo />
 
       </div>
     </Layout>
