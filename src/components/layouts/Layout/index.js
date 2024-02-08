@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "./styles.module.scss";
+// import Script from 'next/script';
 import Header from "../../widgets/Header";
-import Footer from "../../widgets/Footer";
+// import Footer from "../../widgets/Footer";
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 const Layout = ({
@@ -43,12 +44,18 @@ const Layout = ({
         {router.pathname === "/" ? <link rel="preload" href="/fontAwesomeHomePage/css/all.min.css" as="style" onLoad="this.onLoad=null;this.rel='stylesheet'" /> : <></>}
         {router.pathname === "/" ? <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript> : <></>}
 
-
+        {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330" strategy='lazyOnload' />
+        <Script strategy='lazyOnload'>{`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-54500Y5330');
+            `}</Script> */}
 
       </Head>
       <Header />
       <main>{children}</main>
-      {!noFooter && <Footer />}
+      {/* {!noFooter && <Footer />} */}
     </div>
   );
 };

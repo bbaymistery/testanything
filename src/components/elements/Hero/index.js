@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import Image from "next/image";
 import { GET_APP_DATA, SWITCH_JOURNEY } from "../../../store/pickUpDropOffReducer/pickUpDropTypes";
 import env from "../../../resources/env";
-import Return from "./Return/Return";
+// import Return from "./Return/Return";
 
 //when ever i will want to use this content with spesific classnames i will send props
 const Hero = ({ isHeroContentActive, isBgImageActive }) => {
@@ -82,7 +82,7 @@ const Hero = ({ isHeroContentActive, isBgImageActive }) => {
                 </li>
               </ul>
             </div>
-            {activeTabContent === "One Way" ? <OneWay /> : <Return />}
+            {activeTabContent === "One Way" ? <OneWay /> : "<Return />"}
           </div>
         </div>
         <svg className={styles.hero_svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none" >
