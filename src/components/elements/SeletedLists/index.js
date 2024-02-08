@@ -18,14 +18,7 @@ import CheckForOther from "./CheckForOther";
 import { useRouter } from "next/router";
 import env from "../../../resources/env";
 //bura propslar transfer js deki journey detailsden gelir
-const SelectedLists = ({
-  selectedItems,
-  index,
-  journeyType,
-  inTransferComp,
-  forBooking,
-  fromQuotation,
-}) => {
+const SelectedLists = ({ selectedItems, index, journeyType, inTransferComp, forBooking, fromQuotation, }) => {
   const { direction, appData } = useSelector(selectPickUpDropOffReducer);
   const dispatch = useDispatch();
   const imageObjects = appData?.pointTypeCategories?.reduce(
@@ -63,6 +56,8 @@ const SelectedLists = ({
       );
     }
   };
+
+  console.log("SelectedLists");
 
   return (
     <>

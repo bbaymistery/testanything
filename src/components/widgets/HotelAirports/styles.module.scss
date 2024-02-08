@@ -21,12 +21,10 @@
         }
 
         @media (max-width: 750px) {
-            font-size: 23px;
-        }
-
-        @media (max-width: 450px) {
             font-size: 19px;
         }
+
+
     }
 
     .container {
@@ -36,6 +34,8 @@
         .content {
             padding-top: 50px;
             gap: 30px;
+            display: flex;
+            flex-wrap: wrap;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             place-items: center;
@@ -81,10 +81,9 @@
 
                 &:not(:first-child) {
                     margin-left: 25px;
-
-                    @media (max-width: 600px) {
-                        margin-left: 0px;
-                    }
+                    // @media (max-width: 600px) {
+                    //     margin-left: 0px;
+                    // }
                 }
 
                 .img_div {
@@ -109,10 +108,6 @@
                             font-size: 16px;
                         }
 
-                        @media (max-width: 690px) {
-                            font-size: 15px;
-                        }
-
                         &:hover {
                             transition: .5s ease-in-out;
                             color: $mainBlue;
@@ -125,28 +120,15 @@
                         justify-content: flex-end;
                         align-items: center;
 
-                        .title {
-                            color: $black3;
-                            font-size: 15px;
-                            margin-bottom: 0px;
-                            display: flex;
-                            align-items: center;
 
-                            @media (max-width: 690px) {
-                                font-size: 13px;
-                            }
-                        }
 
                         .card_detail_btn_box {
                             display: flex;
                             color: $black1;
                             padding-top: 10px;
+                            font-size: 15px;
+                            padding-top: 0px;
 
-                            @media (max-width: 690px) {
-                                align-items: center;
-                                font-size: 15px;
-                                padding-top: 0px;
-                            }
 
                             &:hover {
                                 transition: .5s ease-in-out;
@@ -160,18 +142,7 @@
                                 cursor: pointer;
                             }
 
-                            .detail_arrow_icon {
-                                font-size: 14px;
-                                margin-left: 5px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
 
-                                @media (max-width: 690px) {
-                                    font-size: 12px;
-                                }
-
-                            }
                         }
                     }
                 }

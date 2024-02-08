@@ -1,27 +1,12 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  gettingQuotations,
-  setHourAndMinute,
-} from "../../../store/pickUpDropOffReducer/pickUpDropAction";
-import {
-  returnDateTimeString,
-  selectPickUpDropOffReducer,
-  transferDateTimeString,
-} from "../../../store/pickUpDropOffReducer/pickUpDropSelectors";
+import { gettingQuotations, setHourAndMinute, } from "../../../store/pickUpDropOffReducer/pickUpDropAction";
+import { returnDateTimeString, selectPickUpDropOffReducer, transferDateTimeString, } from "../../../store/pickUpDropOffReducer/pickUpDropSelectors";
 import styles from "./elgun.module.scss";
-/**
- **/
+
 const TimePicker = (props) => {
-  let {
-    className = "",
-    options = [],
-    title = "",
-    name = "",
-    journeyType = "" || boolean || number,
-    errorMessage = false,
-  } = props;
+  let { className = "", options = [], title = "", name = "", journeyType = "" || boolean || number, errorMessage = false, } = props;
   //i pass value with ransfer and with return so which one is current passed that one willbe active
   //the same goes to active minute
   const selectTransferDateTimeString = useSelector(transferDateTimeString);
@@ -51,6 +36,7 @@ const TimePicker = (props) => {
     setDropdownActive(false);
     setActiveMinute(e.target.innerText);
   };
+  console.log("calisiyorum");
 
   useEffect(() => {
     if (journeyType === 0 && name === "hour") {
@@ -68,26 +54,18 @@ const TimePicker = (props) => {
       dispatch(setHourAndMinute(activeMinute, "minuteReturn"));
     }
     if (router.pathname === "/quotation" && direction === "left") {
-      dispatch(
-        gettingQuotations(router, 0, {
-          updateInsideQuotation: true,
-        })
-      );
+      console.log("1");
+      dispatch(gettingQuotations(router, 0, { updateInsideQuotation: true, }));
     }
     //bunu deyiseceyik sadece return ucun edeceyik
     if (router.pathname === "/quotation" && direction === "right") {
-      dispatch(
-        gettingQuotations(router, 1, {
-          updateInsideQuotation: true,
-        })
-      );
+      dispatch(gettingQuotations(router, 1, { updateInsideQuotation: true, }));
+      console.log("2 ) {");
+
     }
     if (router.pathname === "/managebooking") {
-      dispatch(
-        gettingQuotations(router, 0, {
-          updateInsideQuotation: true,
-        })
-      );
+      dispatch(gettingQuotations(router, 0, { updateInsideQuotation: true, }));
+      console.log("3) {");
     }
 
     setOpt(options);
@@ -118,8 +96,8 @@ const TimePicker = (props) => {
                 <li
                   onClick={(e) => selectValue(e, i)}
                   className={`${styles.li} ${Number(activeHour) === Number(item.value)
-                      ? styles.current
-                      : ""
+                    ? styles.current
+                    : ""
                     }`}
                   key={item.id}
                   value={item.value}
@@ -134,8 +112,8 @@ const TimePicker = (props) => {
                 <li
                   onClick={(e) => selectValue(e, i)}
                   className={`${styles.li} ${Number(activeMinute) === Number(item.value)
-                      ? styles.current
-                      : ""
+                    ? styles.current
+                    : ""
                     }`}
                   key={item.id}
                   value={item.value}

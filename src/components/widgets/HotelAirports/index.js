@@ -103,9 +103,6 @@ const HotelsAirports = () => {
                     <div className={styles.card_desc_subtitle}>
                       <div className={styles.card_detail_btn_box}>
                         <div className={styles.detail_btn}>See Details</div>
-                        <p className={styles.detail_arrow_icon}>
-                          <i className="fa-solid fa-angle-right"></i>
-                        </p>
                       </div>
                     </div>
                   </div>

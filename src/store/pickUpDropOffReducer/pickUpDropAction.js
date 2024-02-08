@@ -205,6 +205,9 @@ export const setParamsError =
 
 export const gettingQuotations =
   (router, journeyType, updateInsideQuotation) => (dispatch, getState) => {
+
+    console.log("gettingQuotations");
+
     const { pickUpDropOffReducer: { reservations }, } = getState();
     //transfer
     let trSelectedPickPoints = reservations[0]?.selectedPickupPoints;

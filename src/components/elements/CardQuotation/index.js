@@ -9,7 +9,6 @@ import {
   selectPickUpDropOffReducer,
 } from "../../../store/pickUpDropOffReducer/pickUpDropSelectors";
 import styles from "./styles.module.scss";
-import InfoModal from "../InfoModal/InfoModal";
 import { SET_MODAL_INFO } from "../../../store/pickUpDropOffReducer/pickUpDropTypes";
 import env from "../../../resources/env";
 const CardQuotation = ({
@@ -93,10 +92,10 @@ const CardQuotation = ({
                 <div
                   onClick={(e) => handleClickForMobile(e, item)}
                   className={`${styles.main_body} ${451 > document.documentElement.clientWidth &&
-                      Number(selectedQuotation?.carId) ===
-                      Number(carObject[item?.carId].id)
-                      ? styles.selectedCard
-                      : ""
+                    Number(selectedQuotation?.carId) ===
+                    Number(carObject[item?.carId].id)
+                    ? styles.selectedCard
+                    : ""
                     } `}
                 >
                   <div className={styles.item_body_left}>
@@ -187,7 +186,13 @@ const CardQuotation = ({
                       >
                         <div className={styles.price}>
                           {quotLoading ? (
-                            <LoadBtn className={"loading_inside_quot"} />
+                            // <LoadBtn className={"loading_inside_quot"} />
+                            <div className={`${styles.loading_inside_quot}`}>
+                              <div className={styles.dot}></div>
+                              <div className={styles.dot}></div>
+                              <div className={styles.dot}></div>
+                              <div className={styles.dot}></div>
+                            </div>
                           ) : (
                             `£ ${item?.price}`
                           )}

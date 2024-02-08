@@ -121,9 +121,9 @@ const EachQuotatCarItem = ({
                       <div
                         id="test"
                         className={`${styles.perJourney_section} ${Number(selectedQuotation?.carId) ===
-                            Number(carObject[item?.carId].id)
-                            ? styles.selectedBtn
-                            : ""
+                          Number(carObject[item?.carId].id)
+                          ? styles.selectedBtn
+                          : ""
                           }`}
                       >
                         <button onClick={(e) => handleClick(e, item)}>

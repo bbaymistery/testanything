@@ -37,68 +37,14 @@ const Layout = ({
         <meta name="copyright" content="Heathrow Gatwick Transfers Ltd" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 " />
 
-        {/* <link rel="preload" href="/webpImages/logo.webp" as="image" />
-        <link rel="preload" href="/webpImages/hero.webp" as="image" /> */}
-
         <meta name="google-site-verification" content="9niN--Hxw6fLfS5Om0lK1dGEvoDbwo-ZTxjamC9oz64" />
-        {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" media="all" /> */}
-        {/*
-        <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-        <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap" /> */}
         <link rel="icon" href="/favicon.ico" />
-        {router.pathname === "/" ? <link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /> : <link rel="stylesheet" href="/fontAwesome/css/all.min.css" />}
-        {/* <style type="text/css">
+        {router.pathname === "/" ? <></> : <link rel="stylesheet" href="/fontAwesome/css/all.min.css" />}
+        {router.pathname === "/" ? <link rel="preload" href="/fontAwesomeHomePage/css/all.min.css" as="style" onLoad="this.onLoad=null;this.rel='stylesheet'" /> : <></>}
+        {router.pathname === "/" ? <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript> : <></>}
 
 
-          {`
-          @font-face {
-            font - family: "Font Awesome 6 Free";
-          font-weight: 900;
-          src: url(../webfonts/fa-solid-900.ttf) format("truetype");
-          font-display: swap ;
-}
 
-          .fa,
-          .fa-solid {
-            font - family: "Font Awesome 6 Free";
-          font-weight: 900
-}
-
-          .fa-arrow-right-long:before {
-            content: "\f178"
-}
-
-          .fa-exchange:before {
-            content: "\f0ec"
-}
-
-          .fa-location-dot:before {
-            content: "\f3c5"
-}
-
-          .fa-calendar-days:before {
-            content: "\f073"
-}
-
-          .fa-handshake-simple:before {
-            content: "\f4c6"
-}
-
-          .fa-sterling-sign:before {
-            content: "\f154"
-}
-
-          .fa-baby-carriage:before {
-            content: "\f77d"
-}
-
-          .fa-xmark-circle:before {
-            content: "\f057"
-}
-       `}
-        </style> */}
-        <link rel="preload" href="/fontAwesomeHomePage/css/all.min.css" as="style" onLoad="this.onLoad=null;this.rel='stylesheet'" />
-        <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript>
       </Head>
       <Header />
       <main>{children}</main>
@@ -108,3 +54,11 @@ const Layout = ({
 };
 
 export default Layout;
+
+{/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" media="all" /> */ }
+{/*
+<link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+<link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap" /> */}
+
+{/* <link rel="preload" href="/webpImages/logo.webp" as="image" />
+        <link rel="preload" href="/webpImages/hero.webp" as="image" /> */}

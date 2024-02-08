@@ -4,9 +4,9 @@ import stylesFromOneWay from "../OneWay/oneway.module.scss";
 import TextInput from "../../TextInput";
 import TimePicker from "../../TimePicker";
 import DateInput from "../../DateInput";
-import BlueBotton from "../../Buttons/BlueButton";
+// import BlueBotton from "../../Buttons/BlueButton";
 import { hourss, minutes } from "../../../../constants/showCase";
-import HandleSearchResults from "../../HandleSearchResults";
+// import HandleSearchResults from "../../HandleSearchResults";
 import { useDispatch, useSelector } from "react-redux";
 import {
   DroopOffPointsOneWay,
@@ -43,16 +43,26 @@ import {
   setParamsError,
   updateSearchValue,
 } from "../../../../store/pickUpDropOffReducer/pickUpDropAction";
-import SelectedLists from "../../SeletedLists";
+// import SelectedLists from "../../SeletedLists";
 import {
   convertDateToMilliSecond,
   dateTimeStringFunc,
   dateTimeStringFuncForReturn,
 } from "../../../../helpers/getDate";
-import LoadBtn from "../../Buttons/LoadBtn";
+// import LoadBtn from "../../Buttons/LoadBtn";
 import { useRouter } from "next/router";
 import Alert from "../../AlertMessages";
 import { useWindowSize } from "../../../../hooks/useWindowSize";
+import dynamic from "next/dynamic";
+const LoadBtn = dynamic(() => import('../../Buttons/LoadBtn'),)
+const SelectedLists = dynamic(() => import('../../SeletedLists'),)
+const HandleSearchResults = dynamic(() => import('../../HandleSearchResults'),)
+const BlueBotton = dynamic(() => import('../../Buttons/BlueButton'),)
+
+
+
+
+
 const Return = ({
   btnTittle,
   border,
@@ -887,7 +897,7 @@ const Return = ({
               </div>
             }
             {/* {params?.quotations?.quotationError?.errorMessage ? <p className={"errorBookedMessage"}>{params.quotations.quotationError.errorMessage}</p> : <></>} */}
-            {params?.quotations?.quotationError?.errorMessage  ? <p className={"errorBookedMessage"}>{params.quotations.quotationError.errorMessage}</p> : <></>}
+            {params?.quotations?.quotationError?.errorMessage ? <p className={"errorBookedMessage"}>{params.quotations.quotationError.errorMessage}</p> : <></>}
 
 
 

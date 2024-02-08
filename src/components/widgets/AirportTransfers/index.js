@@ -87,7 +87,7 @@ class AirportTransfers extends React.Component {
       window.removeEventListener("mouseup");
       window.removeEventListener("mousemove");
       window.removeEventListener("resize", getPoint);
-    } catch (error) {}
+    } catch (error) { }
   }
   render() {
     return (
