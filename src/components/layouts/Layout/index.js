@@ -57,7 +57,18 @@ const Layout = ({
         `
         }}>
         </script>
-
+        {/* <script dangerouslySetInnerHTML={{
+          __html: `
+          setTimeout(function() {
+          var script = document.createElement('script');
+          script.src = "https://www.googletagmanager.com/gtag/js?id=G-54500Y5330";
+          script.async = true;
+          document.body.appendChild(script);
+          }, 1500); // Delay execution by 1500 milliseconds
+        `
+        }}>
+        </script> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330"></script>
       </Head>
       <Header />
       <main>{children}</main>

@@ -47,19 +47,7 @@ class CustomDocument extends Document {
                 gtag('config', 'G-54500Y5330');
             `}</Script>
  */}
-          {/* <Script strategy="afterInteractive">
-            {`
-    setTimeout(function() {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-54500Y5330');
 
-      // Additional event pushed after GTM initialization
-      dataLayer.push({'event': 'afterLoad'});
-    }, 1500); // Delay execution by 1500 milliseconds
-  `}
-          </Script> */}
 
           {extraTags.map((tag, i) => {
             let { attr, name, textContent } = tag;
