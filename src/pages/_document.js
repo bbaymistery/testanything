@@ -39,7 +39,27 @@ class CustomDocument extends Document {
           <meta name="description" content={description} />
           {/* <link rel="stylesheet" href="/fontawesome/css/all.min.css" /> */}
           <meta name="keywords" content={keywords} />
+          {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330" strategy='beforeInteractive' />
+          <Script strategy='beforeInteractive'>{`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-54500Y5330');
+            `}</Script>
+ */}
+          <Script strategy="afterInteractive">
+            {`
+    setTimeout(function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-54500Y5330');
 
+      // Additional event pushed after GTM initialization
+      dataLayer.push({'event': 'afterLoad'});
+    }, 1500); // Delay execution by 1500 milliseconds
+  `}
+          </Script>
 
           {extraTags.map((tag, i) => {
             let { attr, name, textContent } = tag;

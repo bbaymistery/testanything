@@ -36,7 +36,8 @@ const Layout = ({
         <meta name="author" content="Heathrow Gatwick Transfers Ltd" />
         <meta name="copyright" content="Heathrow Gatwick Transfers Ltd" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 " />
-
+        <link rel="preload" href="/webpImages/logo.webp" as="image" />
+        <link rel="preload" href="/webpImages/hero.webp" as="image" />
         <meta name="google-site-verification" content="9niN--Hxw6fLfS5Om0lK1dGEvoDbwo-ZTxjamC9oz64" />
         <link rel="icon" href="/favicon.ico" />
         {router.pathname === "/" ? <></> : <link rel="stylesheet" href="/fontAwesome/css/all.min.css" />}
@@ -59,5 +60,4 @@ export default Layout;
 <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
 <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap" /> */}
 
-{/* <link rel="preload" href="/webpImages/logo.webp" as="image" />
-        <link rel="preload" href="/webpImages/hero.webp" as="image" /> */}
+{/* <*/ }
