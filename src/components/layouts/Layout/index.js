@@ -68,7 +68,7 @@ const Layout = ({
         `
         }}>
         </script> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330"></script>
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330"></script> */}
       </Head>
       <Header />
       <main>{children}</main>
