@@ -52,7 +52,7 @@ const Hero = ({ isHeroContentActive, isBgImageActive }) => {
   return (
     <div className={styles.hero_wrapper}>
       <div className={`${styles.hero_box}  ${!isBgImageActive ? styles.hero : ""} `}  >
-        <Image priority className={styles.landing_image} layout="fill" objectPosition={"center"} objectFit="cover" src={"/webpImages/hero.webp"} alt="Heathrow Gatwick Transfers Hero Image" sizes="100vw" />
+        {/* <Image priority className={styles.landing_image} layout="fill" objectPosition={"center"} objectFit="cover" src={"/webpImages/hero.webp"} alt="Heathrow Gatwick Transfers Hero Image" sizes="100vw" /> */}
 
         <span className={`${styles.line} ${styles.line_bg1}`}></span>
         <span className={`${styles.line} ${styles.line_bg2}`}></span>
