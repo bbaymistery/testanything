@@ -11,6 +11,9 @@ module.exports = {
     mapApiKey: "AIzaSyDulwIwncfuxBve8MKXPIIPmPLRve6ySw8",
     NEXT_PUBLIC_GOOGLE_ANALYTICS: "G-S02J90JMSB",
   },
+  experimental: {
+    nextScriptWorkers: true,
+  },
   async redirects() {
     return [
       //! redirect for home page is started
