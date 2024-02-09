@@ -15,12 +15,12 @@ const Layout = ({
 
   useEffect(() => {
     document.documentElement.setAttribute("lang", 'en');
-    setTimeout(function () {
-      var script = document.createElement('script');
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-54500Y5330";
-      script.async = true;
-      document.head.appendChild(script);
-    }, 1500);
+    // window.onload = function () {
+    //   var script = document.createElement('script');
+    //   script.src = "https://www.googletagmanager.com/gtag/js?id=G-54500Y5330";
+    //   script.async = true;
+    //   document.head.appendChild(script);
+    // };
   }, [])
 
   return (
@@ -49,7 +49,7 @@ const Layout = ({
         {router.pathname === "/" ? <></> : <link rel="stylesheet" href="/fontAwesome/css/all.min.css" />}
         {router.pathname === "/" ? <link rel="preload" href="/fontAwesomeHomePage/css/all.min.css" as="style" onLoad="this.onLoad=null;this.rel='stylesheet'" /> : <></>}
         {router.pathname === "/" ? <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript> : <></>}
-        <script dangerouslySetInnerHTML={{
+        {/* <script dangerouslySetInnerHTML={{
           __html: `
           setTimeout(function() {
             window.dataLayer = window.dataLayer || [];
@@ -62,7 +62,7 @@ const Layout = ({
           }, 1500);
         `
         }}>
-        </script>
+        </script> */}
         {/* <script dangerouslySetInnerHTML={{
           __html: `
           setTimeout(function() {
