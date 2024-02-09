@@ -39,8 +39,9 @@ class CustomDocument extends Document {
           <meta name="description" content={description} />
           {/* <link rel="stylesheet" href="/fontawesome/css/all.min.css" /> */}
           <meta name="keywords" content={keywords} />
-          {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330" strategy='beforeInteractive' /> */}
-          <Script strategy='beforeInteractive'>{`
+          {/* LAZY LOAD ILE DE DENE */}
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330" strategy='lazyOnload' />
+          <Script strategy='lazyOnload'>{`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
