@@ -15,6 +15,12 @@ const Layout = ({
 
   useEffect(() => {
     document.documentElement.setAttribute("lang", 'en');
+    setTimeout(function () {
+      var script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-54500Y5330";
+      script.async = true;
+      document.head.appendChild(script);
+    }, 1500);
   }, [])
 
   return (
