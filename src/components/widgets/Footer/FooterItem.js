@@ -5,9 +5,9 @@ const FooterItem = (props) => {
   return (
     <div className={styles.footer_item}>
       {titleName && (
-        <h3 className={styles.title} data-text="curvs">
+        <p className={styles.title} data-text="curvs">
           {titleName}
-        </h3>
+        </p>
       )}
       <ul className={styles.list_items}>
         {linkNames.map((item) => {
