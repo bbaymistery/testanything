@@ -63,7 +63,9 @@ export default function HomePage() {
         <SpecialPrices />
         <HotelsAirports />
         <SeaportTransfers />
-        <TestimonialLabel />
+        {hasScrolled && <TestimonialLabel />}
+
+
         {hasScrolled && <TestimanialInfo />}
       </div>
     </Layout>

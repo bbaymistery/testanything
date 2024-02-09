@@ -43,7 +43,20 @@ const Layout = ({
         {router.pathname === "/" ? <></> : <link rel="stylesheet" href="/fontAwesome/css/all.min.css" />}
         {router.pathname === "/" ? <link rel="preload" href="/fontAwesomeHomePage/css/all.min.css" as="style" onLoad="this.onLoad=null;this.rel='stylesheet'" /> : <></>}
         {router.pathname === "/" ? <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript> : <></>}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+          setTimeout(function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-54500Y5330');
 
+            // Additional event pushed after GTM initialization
+            dataLayer.push({'event': 'afterLoad'});
+          }, 1500);
+        `
+        }}>
+        </script>
 
       </Head>
       <Header />

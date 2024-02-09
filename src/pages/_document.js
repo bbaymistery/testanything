@@ -47,7 +47,7 @@ class CustomDocument extends Document {
                 gtag('config', 'G-54500Y5330');
             `}</Script>
  */}
-          <Script strategy="afterInteractive">
+          {/* <Script strategy="afterInteractive">
             {`
     setTimeout(function() {
       window.dataLayer = window.dataLayer || [];
@@ -59,7 +59,7 @@ class CustomDocument extends Document {
       dataLayer.push({'event': 'afterLoad'});
     }, 1500); // Delay execution by 1500 milliseconds
   `}
-          </Script>
+          </Script> */}
 
           {extraTags.map((tag, i) => {
             let { attr, name, textContent } = tag;
