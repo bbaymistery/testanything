@@ -24,6 +24,8 @@ const Alert = (props) => {
       >
         <i className={`fa-solid fa-circle-check ${styles.check}`}></i>
         <span>{message}</span>
+      
+    
         {close && (
           <i
             onClick={() =>

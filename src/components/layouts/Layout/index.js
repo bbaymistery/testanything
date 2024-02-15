@@ -40,10 +40,18 @@ const Layout = ({
         <link rel="preload" href="/webpImages/hero.webp" as="image" />
         <meta name="google-site-verification" content="9niN--Hxw6fLfS5Om0lK1dGEvoDbwo-ZTxjamC9oz64" />
         <link rel="icon" href="/favicon.ico" />
+
         {router.pathname === "/" ? <></> : <link rel="stylesheet" href="/fontAwesome/css/all.min.css" />}
-        {router.pathname === "/" ? <link rel="preload" href="/fontAwesomeHomePage/css/all.min.css" as="style" onLoad="this.onLoad=null;this.rel='stylesheet'" /> : <></>}
-        {router.pathname === "/" ? <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript> : <></>}
-        {/* <script dangerouslySetInnerHTML={{
+
+        {router.pathname === "/" ?
+          <link rel="preload" href="/fontAwesomeHomePage/css/all.min.css" as="style" onLoad="this.onLoad=null;this.rel='stylesheet'" />
+          : <></>}
+
+        {router.pathname === "/" ?
+          <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript> :
+          <></>}
+
+        <script dangerouslySetInnerHTML={{
           __html: `
           setTimeout(function() {
             window.dataLayer = window.dataLayer || [];
@@ -53,10 +61,11 @@ const Layout = ({
 
             // Additional event pushed after GTM initialization
             dataLayer.push({'event': 'afterLoad'});
-          }, 1500);
+          }, 500);
         `
         }}>
-        </script> */}
+
+        </script>
 
       </Head>
       <Header />

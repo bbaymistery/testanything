@@ -55,7 +55,7 @@ export default function HomePage() {
 
 
   return (
-    <Layout  >
+    <Layout>
       <div className={styles.homecontainer}>
         <Hero isHeroContentActive={true} isBgImageActive={true} />
         <Features />
