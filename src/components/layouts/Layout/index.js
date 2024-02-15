@@ -51,6 +51,8 @@ const Layout = ({
           <noscript><link rel="stylesheet" href="/fontAwesomeHomePage/css/all.min.css" /></noscript> :
           <></>}
 
+{/* 
+        <link href="https://www.googletagmanager.com/gtag/js?id=54500Y5330" rel="preload" as="script" />
         <script dangerouslySetInnerHTML={{
           __html: `
           setTimeout(function() {
@@ -65,11 +67,12 @@ const Layout = ({
         `
         }}>
 
-        </script>
+        </script> */}
 
       </Head>
       <Header />
       <main>{children}</main>
+      
       {!noFooter && <Footer />}
     </div>
   );

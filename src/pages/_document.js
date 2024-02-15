@@ -40,14 +40,14 @@ class CustomDocument extends Document {
           {/* <link rel="stylesheet" href="/fontawesome/css/all.min.css" /> */}
           <meta name="keywords" content={keywords} />
           {/* LAZY LOAD ILE DE DENE */}
-          {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330" /> */}
-          {/*
+          <Script defer src="https://www.googletagmanager.com/gtag/js?id=G-54500Y5330" />
+          
           <Script strategy='beforeInteractive'>{`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-54500Y5330');
-            `}</Script> */}
+            `}</Script>
 
 
 
